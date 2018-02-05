@@ -155,6 +155,7 @@ GameObject:
   m_Component:
   - component: {fileID: 446418528}
   - component: {fileID: 446418527}
+  - component: {fileID: 446418529}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -175,7 +176,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameOver: {fileID: 1294079427}
   gameOver: 0
-  scrollSpeed: -7
+  scrollSpeed: -6.5
 --- !u!4 &446418528
 Transform:
   m_ObjectHideFlags: 0
@@ -189,6 +190,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &446418529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 446418526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b6fb3df9487e4318b78d974d2e781e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  seaweedPrefab: {fileID: 1267030875602026, guid: 37385d8b4fe934ff2a434f4936dea3b1,
+    type: 2}
+  spawnRate: 16
 --- !u!1 &596705216
 GameObject:
   m_ObjectHideFlags: 0
@@ -584,6 +599,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9fda343aa4e240fdacffd977bf76114, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectSpeed: 0
 --- !u!212 &740106437
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -893,6 +909,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9fda343aa4e240fdacffd977bf76114, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectSpeed: 0
 --- !u!114 &1454573749
 MonoBehaviour:
   m_ObjectHideFlags: 0
