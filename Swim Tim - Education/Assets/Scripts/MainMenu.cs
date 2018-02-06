@@ -9,12 +9,17 @@ public class MainMenu : MonoBehaviour {
 
 	public void StartGame ()
 	{
-		Application.LoadLevel (startGameScene);
+		Application.LoadLevel(this.startGameScene);
 	}
 
 	public void Rules ()
 	{
-		Application.LoadLevel (startGameScene);
+		Application.LoadLevel(this.startGameScene);
+	}
+
+	public void backToMenu ()
+	{
+		Application.LoadLevel(this.startGameScene);
 	}
 
 }

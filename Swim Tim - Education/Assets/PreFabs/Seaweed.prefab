@@ -22,7 +22,6 @@ GameObject:
   - component: {fileID: 212129935106748068}
   - component: {fileID: 60875564680950980}
   - component: {fileID: 50150239377655510}
-  - component: {fileID: 114799081260353520}
   - component: {fileID: 114386863776361692}
   m_Layer: 0
   m_Name: Seaweed
@@ -326,19 +325,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: -6.5
---- !u!114 &114799081260353520
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1267030875602026}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b6fb3df9487e4318b78d974d2e781e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  seaweedPrefab: {fileID: 0}
-  spawnRate: 16
 --- !u!212 &212129935106748068
 SpriteRenderer:
   m_ObjectHideFlags: 1
