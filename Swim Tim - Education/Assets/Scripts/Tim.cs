@@ -40,7 +40,7 @@ public class Tim : MonoBehaviour {
 			} 
 				if (GameControl.instance.questionTime == true) { 
 
-					//rb2d.constraints = RigidbodyConstraints2D.FreezePositionY;
+				//rb2d.constraints = RigidbodyConstraints2D.FreezePositionY;
 				transform.position = new Vector2(-5f, 0f);
 				
 				}

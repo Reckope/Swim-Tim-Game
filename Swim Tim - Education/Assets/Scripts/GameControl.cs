@@ -14,6 +14,7 @@ public class GameControl : MonoBehaviour {
 
 	public Text scoreText;
 	public Text gameOverText;
+	public Text questionText;
 
 	public bool gameOver = false;
 	public bool questionTime = false;
@@ -40,6 +41,16 @@ public class GameControl : MonoBehaviour {
 		//if (gameOver == true && Input.GetMouseButtonDown (0)) {
 		//	SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex);
 		//}
+
+		if(questionTime == true){
+
+			if (Input.GetMouseButtonDown (0)) { 						
+
+				questionTime = false;
+				QuestionTime.SetActive (false);
+
+			}
+		}
 		
 	}
 
@@ -63,7 +74,7 @@ public class GameControl : MonoBehaviour {
 
 		if(score % 2 == 0){
 
-			questionTime = true;
+			DisplayQuestion ();
 			
 		}
 
@@ -72,6 +83,7 @@ public class GameControl : MonoBehaviour {
 	public void DisplayQuestion() {
 
 		questionTime = true;
+		QuestionTime.SetActive (true);
 
 	}
 }

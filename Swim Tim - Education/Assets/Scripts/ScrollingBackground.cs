@@ -22,6 +22,12 @@ public class ScrollingBackground : MonoBehaviour {
 
 			rb2d.velocity = Vector2.zero;
 		}
+
+		else if (GameControl.instance.gameOver == false || GameControl.instance.questionTime == false) {
+
+			rb2d = GetComponent<Rigidbody2D> ();
+			rb2d.velocity = new Vector2 (GameControl.instance.scrollSpeed, 0);
+		}
 		
 	}
 }
