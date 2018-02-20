@@ -14,13 +14,20 @@ public class GameControl : MonoBehaviour {
 
 	public Text scoreText;
 	public Text gameOverText;
+	public Text timerText;
+
 	public Text questionText;
+	public Text firstChoiceText;
+	public Text secondChoiceText;
+	public Text thirdChoiceText;
+	public Text fourthChoiceText;
 
 	public bool gameOver = false;
 	public bool questionTime = false;
 
 	public float scrollSpeed = -6.5f;
 
+	private float timer = 7.0f;
 	private int score = 0;
 
 
@@ -34,7 +41,7 @@ public class GameControl : MonoBehaviour {
 		}
 		
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 
@@ -44,10 +51,21 @@ public class GameControl : MonoBehaviour {
 
 		if(questionTime == true){
 
-			if (Input.GetMouseButtonDown (0)) { 						
+			timer -= Time.deltaTime;
+			timerText.text = timer.ToString ("N0");
+
+			if (timer < 0.0f) {
+
+				timerText.text = "0";
+				QuestionTime.SetActive (false);
+				TimDied ();
+			}
+
+			if (Input.GetMouseButtonDown (0)) { 	// TEST FOR QUESTION					
 
 				questionTime = false;
 				QuestionTime.SetActive (false);
+				timer = 7.0f;
 
 			}
 		}
@@ -68,7 +86,7 @@ public class GameControl : MonoBehaviour {
 		if (gameOver == true) {
 			return;
 		}
-
+			
 		score++;
 		scoreText.text = "Score: " + score.ToString ();
 

@@ -30,7 +30,7 @@ public class SeaweedPool : MonoBehaviour {
 	void Update () {
 
 		lastSpawnTime += Time.deltaTime;
-		if (GameControl.instance.gameOver == false && lastSpawnTime >= spawnRate) 
+		if (GameControl.instance.gameOver == false && lastSpawnTime >= spawnRate && GameControl.instance.questionTime == false) 
 		{
 			lastSpawnTime = 0f;
 			seaweedPre.transform.position = new Vector2 (spawnXPosition, spawnYPosition);

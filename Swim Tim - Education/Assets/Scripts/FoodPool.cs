@@ -10,6 +10,7 @@ public class FoodPool : MonoBehaviour {
 	private float lastSpawnTime;
 	private GameObject foodPre;
 	private Vector2 foodPoolPosition = new Vector2 (20f, 0f);	// Position where the pool initially spawns
+
 	private float spawnXPosition = 20f;
 	private float spawnYPosition;
 
@@ -33,7 +34,8 @@ public class FoodPool : MonoBehaviour {
 	void Update () {
 
 		lastSpawnTime += Time.deltaTime;
-		if (GameControl.instance.gameOver == false && lastSpawnTime >= spawnRate) 
+
+		if (GameControl.instance.gameOver == false && lastSpawnTime >= spawnRate && GameControl.instance.questionTime == false) 
 		{
 			lastSpawnTime = 0f;
 			spawnYPosition = Random.Range (minYPosition, maxYPosition);

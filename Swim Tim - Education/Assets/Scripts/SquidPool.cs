@@ -32,9 +32,14 @@ public class SquidPool : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+		if (GameControl.instance.questionTime == true) {
+			spawnRate = 15f;
+		}
+
 		lastSpawnTime += Time.deltaTime;
-		if (GameControl.instance.gameOver == false && lastSpawnTime >= spawnRate) 
+		if (GameControl.instance.gameOver == false && lastSpawnTime >= spawnRate && GameControl.instance.questionTime == false) 
 		{
+			spawnRate = 10f;
 			lastSpawnTime = 0f;
 			spawnYPosition = Random.Range (minYPosition, maxYPosition);
 			squidPre.transform.position = new Vector2 (spawnXPosition, spawnYPosition);
