@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212129935106748068}
   - component: {fileID: 60875564680950980}
   - component: {fileID: 50150239377655510}
-  - component: {fileID: 114386863776361692}
+  - component: {fileID: 114413379204928392}
   m_Layer: 0
   m_Name: Seaweed
   m_TagString: Untagged
@@ -313,7 +313,7 @@ PolygonCollider2D:
       - {x: -0.39, y: 0.84499997}
       - {x: -0.35999998, y: 0.815}
       - {x: -0.35999998, y: 0.685}
---- !u!114 &114386863776361692
+--- !u!114 &114413379204928392
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -321,10 +321,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1267030875602026}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0da812d3f74204970bdd2599a300dd5b, type: 3}
+  m_Script: {fileID: 11500000, guid: a9fda343aa4e240fdacffd977bf76114, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: -8.5
 --- !u!212 &212129935106748068
 SpriteRenderer:
   m_ObjectHideFlags: 1

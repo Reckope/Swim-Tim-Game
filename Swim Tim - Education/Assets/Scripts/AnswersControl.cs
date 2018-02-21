@@ -30,4 +30,9 @@ public class AnswersControl : MonoBehaviour {
 		}
 		
 	}
+
+	void OnMouseDown() {
+
+
+	}
 }

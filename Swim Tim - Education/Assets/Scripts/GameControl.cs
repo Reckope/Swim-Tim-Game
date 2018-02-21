@@ -21,11 +21,15 @@ public class GameControl : MonoBehaviour {
 	public Text secondChoiceText;
 	public Text thirdChoiceText;
 	public Text fourthChoiceText;
+	public Text correctText;
 
 	public bool gameOver = false;
 	public bool questionTime = false;
 
 	public float scrollSpeed = -6.5f;
+	public float tunaSpeed;
+	public float enemySpeed;
+	//public float enemySpeed;
 
 	private float timer = 7.0f;
 	private int score = 0;
@@ -61,13 +65,13 @@ public class GameControl : MonoBehaviour {
 				TimDied ();
 			}
 
-			if (Input.GetMouseButtonDown (0)) { 	// TEST FOR QUESTION					
+			//if (Input.GetMouseButtonDown (0)) { 	// TEST FOR QUESTION					
 
-				questionTime = false;
-				QuestionTime.SetActive (false);
-				timer = 7.0f;
+			//	questionTime = false;
+			//	QuestionTime.SetActive (false);
+			//	timer = 7.0f;
 
-			}
+			//}
 		}
 		
 	}
@@ -102,6 +106,24 @@ public class GameControl : MonoBehaviour {
 
 		questionTime = true;
 		QuestionTime.SetActive (true);
+
+	}
+
+	public void completeQuestion() {
+		
+		questionTime = false;
+		QuestionTime.SetActive (false);
+		timer = 7.0f;
+		QuestionsControl.randomQuestion = -1;
+		StartCoroutine (displayCorrect ());
+
+	}
+
+	public IEnumerator displayCorrect () {
+
+		correctText.text = "CORRECT";
+		yield return new WaitForSeconds (1);
+		correctText.text = " ";
 
 	}
 }

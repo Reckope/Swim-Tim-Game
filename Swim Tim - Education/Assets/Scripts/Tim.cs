@@ -31,7 +31,8 @@ public class Tim : MonoBehaviour {
 
 		if (deadStatus == false) {								// If Tim is alive
 			if (GameControl.instance.questionTime == false) {
-				
+
+				rb2d.constraints = ~RigidbodyConstraints2D.FreezeAll;
 				if (Input.GetMouseButton (0)) { 						// If the player has left clicked / holding down left click.
 					rb2d.velocity = (new Vector2 (0, swimUp));		
 					//rb2d.AddRelativeForce(new Vector2(0, swimUp));	// Tim swim upwards.
@@ -40,8 +41,8 @@ public class Tim : MonoBehaviour {
 			} 
 				if (GameControl.instance.questionTime == true) { 
 
-				//rb2d.constraints = RigidbodyConstraints2D.FreezePositionY;
-				transform.position = new Vector2(-5f, 2f);
+				//transform.position = new Vector2(-5f, 2f);
+				rb2d.constraints = RigidbodyConstraints2D.FreezeAll;
 				
 				}
 					

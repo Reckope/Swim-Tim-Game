@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212210689929215566}
   - component: {fileID: 60953216513301564}
   - component: {fileID: 50128218000177982}
-  - component: {fileID: 114022204325692476}
+  - component: {fileID: 114004972684780448}
   m_Layer: 0
   m_Name: SquidSprite
   m_TagString: Untagged
@@ -301,7 +301,7 @@ PolygonCollider2D:
       - {x: 0.26999998, y: 0.035}
       - {x: 0.19999999, y: -0.074999996}
       - {x: 0.22999999, y: -0.055}
---- !u!114 &114022204325692476
+--- !u!114 &114004972684780448
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -309,10 +309,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1961721779963982}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0da812d3f74204970bdd2599a300dd5b, type: 3}
+  m_Script: {fileID: 11500000, guid: 7097c441899d24e96a4fdfef22e06ba7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: -6.1
+  speed: 0
 --- !u!212 &212210689929215566
 SpriteRenderer:
   m_ObjectHideFlags: 1

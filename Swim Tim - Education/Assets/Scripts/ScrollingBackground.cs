@@ -5,7 +5,6 @@ using UnityEngine;
 public class ScrollingBackground : MonoBehaviour {
 
 	private Rigidbody2D rb2d;
-	public float objectSpeed;
 
 	// Use this for initialization
 	void Start () {

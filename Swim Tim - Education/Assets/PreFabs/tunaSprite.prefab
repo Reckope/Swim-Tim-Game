@@ -20,10 +20,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4792405217739054}
   - component: {fileID: 212971427649541994}
-  - component: {fileID: 114422836564787256}
   - component: {fileID: 50424848458979970}
   - component: {fileID: 114322087944782888}
   - component: {fileID: 60513221764793668}
+  - component: {fileID: 114670924494263172}
   m_Layer: 0
   m_Name: tunaSprite
   m_TagString: Untagged
@@ -132,7 +132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f6d3fab3c64b4efe91ca403f88a18c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114422836564787256
+--- !u!114 &114670924494263172
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -143,7 +143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0da812d3f74204970bdd2599a300dd5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: -5.5
+  speed: -6.5
 --- !u!212 &212971427649541994
 SpriteRenderer:
   m_ObjectHideFlags: 1
