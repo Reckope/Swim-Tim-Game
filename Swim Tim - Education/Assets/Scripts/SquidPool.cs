@@ -9,7 +9,7 @@ public class SquidPool : MonoBehaviour {
 
 	private float lastSpawnTime;
 	private GameObject squidPre;
-	private Vector2 squidPoolPosition = new Vector2 (20f, 0f);	// Position where the pool initially spawns
+	private Vector2 squidPoolPosition = new Vector2 (30f, -3f);	// Position where the pool initially spawns
 	private float spawnXPosition = 20f;
 	private float spawnYPosition;
 

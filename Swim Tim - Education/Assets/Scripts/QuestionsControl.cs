@@ -40,6 +40,13 @@ public class QuestionsControl : MonoBehaviour {
 				GameControl.instance.completeQuestion (); 
 				
 			}
+
+			else if (correctAnswer [randomQuestion] != selectedAnswer) {
+
+				Debug.Log ("WRONG");
+				GameControl.instance.questionTime = false;
+				GameControl.instance.TimDied ();
+			}
 			
 		}
 		

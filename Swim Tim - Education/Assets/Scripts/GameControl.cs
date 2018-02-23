@@ -34,9 +34,10 @@ public class GameControl : MonoBehaviour {
 	private float timer = 7.0f;
 	private int score = 0;
 
-
 	// Use this for initialization
 	void Awake () {
+
+		Tim.deadStatus = false;
 
 		if (instance == null) {
 			instance = this;
@@ -78,11 +79,15 @@ public class GameControl : MonoBehaviour {
 
 	public void TimDied() {
 
+		Tim.deadStatus = true;
+		CharacterHealth.currentHealth = 0f;
+		QuestionTime.SetActive (false);
 		gameOverText.text = "Final Score: " + score.ToString ();
 		scoreText.text = null;
 		GameOver.SetActive (true);
 		Menu.SetActive (true);
 		gameOver = true;
+		Tim.ani.SetTrigger ("TimDead");
 	}
 
 	public void TimScored(){
@@ -94,7 +99,7 @@ public class GameControl : MonoBehaviour {
 		score++;
 		scoreText.text = "Score: " + score.ToString ();
 
-		if(score % 2 == 0){
+		if(score % 6 == 0){
 
 			DisplayQuestion ();
 			
@@ -114,6 +119,7 @@ public class GameControl : MonoBehaviour {
 		questionTime = false;
 		QuestionTime.SetActive (false);
 		timer = 7.0f;
+		CharacterHealth.currentHealth = 22f;
 		QuestionsControl.randomQuestion = -1;
 		StartCoroutine (displayCorrect ());
 

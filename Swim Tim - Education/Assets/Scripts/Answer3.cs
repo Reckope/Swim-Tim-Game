@@ -22,7 +22,6 @@ public class Answer3 : MonoBehaviour, IPointerDownHandler {
 	}
 
 	public void OnPointerDown (PointerEventData eventData) {
-		Debug.Log ("WRONG 3");
 		//QuestionsControl.selectedAnswer = gameObject.name;
 		QuestionsControl.selectedAnswer = "3";
 		QuestionsControl.choiceSelected = true;

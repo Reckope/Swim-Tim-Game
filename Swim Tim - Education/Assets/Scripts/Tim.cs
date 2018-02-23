@@ -7,10 +7,10 @@ public class Tim : MonoBehaviour {
 
 	public static Tim instance;
 
-	private bool deadStatus = false;
+	public static bool deadStatus = false;
 
 	private Rigidbody2D rb2d;
-	private Animator ani;
+	public static Animator ani;
 
 	//public AudioSource bgMusic;
 	public float swimUp = 300f;									// Upward force of swimming up. (300f)
@@ -52,7 +52,7 @@ public class Tim : MonoBehaviour {
 
 	void OnCollisionEnter2D ()									// When Tim hits the ground
 	{
-		deadStatus = true;										// Tim is dead
+		//deadStatus = true;										// Tim is dead
 		ani.SetTrigger ("TimDead");								// Play Animation
 		//bgMusic.Stop();
 		GameControl.instance.TimDied ();						// Calls function from the controlGame script
