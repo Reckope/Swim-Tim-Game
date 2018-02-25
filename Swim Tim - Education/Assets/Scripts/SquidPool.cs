@@ -9,7 +9,8 @@ public class SquidPool : MonoBehaviour {
 
 	private float lastSpawnTime;
 	private GameObject squidPre;
-	private Vector2 squidPoolPosition = new Vector2 (30f, -3f);	// Position where the pool initially spawns
+	private Vector2 squidPoolPosition = new Vector2 (20f, -3f);	// Position where the pool initially spawns
+
 	private float spawnXPosition = 20f;
 	private float spawnYPosition;
 
@@ -34,11 +35,17 @@ public class SquidPool : MonoBehaviour {
 
 		if (GameControl.instance.questionTime == true) {
 			spawnRate = 15f;
+			lastSpawnTime = lastSpawnTime;
+
 		}
 
-		lastSpawnTime += Time.deltaTime;
+		if (GameControl.instance.questionTime == false) {
+			lastSpawnTime += Time.deltaTime;
+		}
+
 		if (GameControl.instance.gameOver == false && lastSpawnTime >= spawnRate && GameControl.instance.questionTime == false) 
 		{
+
 			spawnRate = 10f;
 			lastSpawnTime = 0f;
 			spawnYPosition = Random.Range (minYPosition, maxYPosition);

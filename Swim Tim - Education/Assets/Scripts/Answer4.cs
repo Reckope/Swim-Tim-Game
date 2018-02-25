@@ -5,7 +5,19 @@ using UnityEngine.EventSystems;
 
 public class Answer4 : MonoBehaviour, IPointerDownHandler {
 
-	List<string> fourthChoice = new List<string>() {"49", "27", "9", "10"};
+	List<string> fourthChoice = new List<string>() {
+		"54 + 47", 
+		"800", 
+		"64", 
+		"816",
+		"44",
+		"200 + 15",
+		"28",
+		"90",
+		"250",
+		"18 + 56"
+
+	};
 
 	// Use this for initialization
 	void Start () {

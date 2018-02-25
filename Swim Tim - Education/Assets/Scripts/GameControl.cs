@@ -29,9 +29,8 @@ public class GameControl : MonoBehaviour {
 	public float scrollSpeed = -6.5f;
 	public float tunaSpeed;
 	public float enemySpeed;
-	//public float enemySpeed;
 
-	private float timer = 7.0f;
+	private float timer = 12.0f;
 	private int score = 0;
 
 	// Use this for initialization
@@ -118,7 +117,7 @@ public class GameControl : MonoBehaviour {
 		
 		questionTime = false;
 		QuestionTime.SetActive (false);
-		timer = 7.0f;
+		timer = 12.0f;
 		CharacterHealth.currentHealth = 22f;
 		QuestionsControl.randomQuestion = -1;
 		StartCoroutine (displayCorrect ());

@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour {	
 
 	public string startGameScene;
+	public string rulesScene;
 
 	public void StartGame ()
 	{
@@ -14,7 +15,7 @@ public class MainMenu : MonoBehaviour {
 
 	public void Rules ()
 	{
-		Application.LoadLevel(this.startGameScene);
+		Application.LoadLevel(this.rulesScene);
 	}
 
 	public void backToMenu ()
