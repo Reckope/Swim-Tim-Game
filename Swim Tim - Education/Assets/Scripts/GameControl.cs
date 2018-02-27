@@ -37,6 +37,7 @@ public class GameControl : MonoBehaviour {
 	void Awake () {
 
 		Tim.deadStatus = false;
+		Application.targetFrameRate = 600;
 
 		if (instance == null) {
 			instance = this;
@@ -64,14 +65,6 @@ public class GameControl : MonoBehaviour {
 				QuestionTime.SetActive (false);
 				TimDied ();
 			}
-
-			//if (Input.GetMouseButtonDown (0)) { 	// TEST FOR QUESTION					
-
-			//	questionTime = false;
-			//	QuestionTime.SetActive (false);
-			//	timer = 7.0f;
-
-			//}
 		}
 		
 	}

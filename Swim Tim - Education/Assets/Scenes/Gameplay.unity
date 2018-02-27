@@ -3313,6 +3313,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startGameScene: MainMenu
+  rulesScene: 
 --- !u!1 &1416234158
 GameObject:
   m_ObjectHideFlags: 0
@@ -4294,6 +4295,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startGameScene: Gameplay
+  rulesScene: 
 --- !u!114 &1725096920
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4473,6 +4475,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startGameScene: MainMenu
+  rulesScene: 
 --- !u!1 &1919009527
 GameObject:
   m_ObjectHideFlags: 0
