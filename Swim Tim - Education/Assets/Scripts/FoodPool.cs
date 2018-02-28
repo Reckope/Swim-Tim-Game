@@ -17,7 +17,7 @@ public class FoodPool : MonoBehaviour {
 	private float spawnXPosition = 20f;
 	private float spawnYPosition;
 
-	private float minYPosition = -2.2f;
+	private float minYPosition = -2.30f;
 	private float maxYPosition = 3.20f;
 
 	private int currentFood = 0;

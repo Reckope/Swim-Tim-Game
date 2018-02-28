@@ -17,7 +17,7 @@ public class CharacterHealth : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		maxHealth = 22f;
+		maxHealth = 21f;
 		currentHealth = maxHealth;
 
 		healthBar.value = CalculateHealth ();
@@ -37,7 +37,7 @@ public class CharacterHealth : MonoBehaviour {
 			GameControl.instance.TimDied ();
 		}
 
-		if (currentHealth > 22){
+		if (currentHealth > maxHealth){
 
 			currentHealth = maxHealth;
 		}
@@ -53,6 +53,6 @@ public class CharacterHealth : MonoBehaviour {
 
 /* REFERENCES
 
- How to create a health bar in unity. https://www.youtube.com/watch?v=GfuxWs6UAJQ&feature=youtu.be. Accessed 22/02/18
+ How to create a health bar in unity. https://www.youtube.com/watch?v=GfuxWs6UAJQ&feature=youtu.be. Accessed 22/02/18.
 
 */

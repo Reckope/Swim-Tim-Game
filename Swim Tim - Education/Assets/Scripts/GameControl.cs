@@ -11,10 +11,13 @@ public class GameControl : MonoBehaviour {
 	public GameObject GameOver;
 	public GameObject Menu;
 	public GameObject QuestionTime;
+	public GameObject QuestionBackground;
 
 	public Text scoreText;
 	public Text gameOverText;
-	public Text timerText;
+	public Text QuestionTimerText;
+	public Text nextQuestionTimerText;
+	public Text totalTimeText;
 
 	public Text questionText;
 	public Text firstChoiceText;
@@ -30,12 +33,17 @@ public class GameControl : MonoBehaviour {
 	public float tunaSpeed;
 	public float enemySpeed;
 
-	private float timer = 12.0f;
-	private int score = 0;
+	private float QuestionTimer = 12.0f;
+	private float nextQuestionTimer;
+
+	public static int score = 0;
+	public static float totalTime = 0f;
 
 	// Use this for initialization
 	void Awake () {
 
+		nextQuestionTimer = 15f;
+		totalTime = 0f;
 		Tim.deadStatus = false;
 		Application.targetFrameRate = 600;
 
@@ -50,18 +58,16 @@ public class GameControl : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		//if (gameOver == true && Input.GetMouseButtonDown (0)) {
-		//	SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex);
-		//}
+		StartNextQuestionTimer ();
+		StartTotalTime ();
 
 		if(questionTime == true){
 
-			timer -= Time.deltaTime;
-			timerText.text = timer.ToString ("N0");
+			StartQuestionTimer ();
 
-			if (timer < 0.0f) {
+			if (QuestionTimer < 0.0f) {
 
-				timerText.text = "0";
+				QuestionTimerText.text = "0";
 				QuestionTime.SetActive (false);
 				TimDied ();
 			}
@@ -74,7 +80,9 @@ public class GameControl : MonoBehaviour {
 		Tim.deadStatus = true;
 		CharacterHealth.currentHealth = 0f;
 		QuestionTime.SetActive (false);
+		QuestionBackground.SetActive (true);
 		gameOverText.text = "Final Score: " + score.ToString ();
+		DisplayTotalTime ();
 		scoreText.text = null;
 		GameOver.SetActive (true);
 		Menu.SetActive (true);
@@ -91,11 +99,11 @@ public class GameControl : MonoBehaviour {
 		score++;
 		scoreText.text = "Score: " + score.ToString ();
 
-		if(score % 6 == 0){
+		//if(score % 6 == 0){
 
-			DisplayQuestion ();
+			//DisplayQuestion ();
 			
-		}
+		//}
 
 	}
 
@@ -103,6 +111,7 @@ public class GameControl : MonoBehaviour {
 
 		questionTime = true;
 		QuestionTime.SetActive (true);
+		QuestionBackground.SetActive (true);
 
 	}
 
@@ -110,18 +119,77 @@ public class GameControl : MonoBehaviour {
 		
 		questionTime = false;
 		QuestionTime.SetActive (false);
-		timer = 12.0f;
-		CharacterHealth.currentHealth = 22f;
+		QuestionBackground.SetActive (false);
+		QuestionTimer = 12.0f;
+		nextQuestionTimer = Random.Range (15f, 25f);
+		nextQuestionTimerText.color = new Color (199.0f/255.0f, 0.0f/255.0f, 255.0f/255.0f);
+		QuestionTimerText.color = Color.white;
+		nextQuestionTimerText.fontSize = 17;
+		CharacterHealth.currentHealth = 20f;
 		QuestionsControl.randomQuestion = -1;
-		StartCoroutine (displayCorrect ());
+		StartCoroutine (DisplayCorrectText ());
+	}
+
+	public IEnumerator DisplayCorrectText () {
+
+			correctText.text = "CORRECT";
+			yield return new WaitForSeconds (1);
+			correctText.text = " ";
+	}
+
+	public void StartQuestionTimer() {
+
+		QuestionTimer -= Time.deltaTime;
+		QuestionTimerText.text = QuestionTimer.ToString ("N0");
+		if(QuestionTimer < 3.50f && QuestionTimer >= 0){
+			QuestionTimerText.color = Color.red;
+		}
 
 	}
 
-	public IEnumerator displayCorrect () {
+	public void StartNextQuestionTimer (){
 
-		correctText.text = "CORRECT";
-		yield return new WaitForSeconds (1);
-		correctText.text = " ";
+		if (questionTime == false && Tim.deadStatus == false) {
+			nextQuestionTimer -= Time.deltaTime;
+			nextQuestionTimerText.text = "Next Question: " + nextQuestionTimer.ToString ("N0");
 
+			if(nextQuestionTimer < 3.50f && nextQuestionTimer >= 0){
+				nextQuestionTimerText.color = Color.red;
+				nextQuestionTimerText.fontSize = 26;
+			}
+
+			if(nextQuestionTimer < 0.0f){
+				DisplayQuestion ();
+			}
+		}
+
+	}
+
+	public void StartTotalTime(){
+		if (questionTime == false && Tim.deadStatus == false) {
+			totalTime += Time.deltaTime;
+		}
+	}
+
+	public void IncreaseGameSpeed(){
+
+		scrollSpeed = (scrollSpeed - (float)0.08); 			// Make the game go faster when a fish is collected.
+		tunaSpeed = (tunaSpeed - (float)0.06);
+		enemySpeed = (enemySpeed - (float)0.08);
+
+	}
+
+	public void DisplayTotalTime(){
+
+		float minutes = Mathf.Floor(totalTime / 60);
+		float seconds = Mathf.RoundToInt(totalTime%60);
+
+		if (totalTime > 0.95f && totalTime <= 1.49f) {
+			totalTimeText.text = "Time Survived: " + totalTime.ToString ("F2") + " Second";
+		}
+
+		if (totalTime > 1.49f && totalTime <= 59.49f) {
+			totalTimeText.text = "Time Survived: " + totalTime.ToString ("F2") + " Seconds";
+		}
 	}
 }
