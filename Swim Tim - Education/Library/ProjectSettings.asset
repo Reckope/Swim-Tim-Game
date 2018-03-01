@@ -10,7 +10,7 @@ PlayerSettings:
   defaultScreenOrientation: 4
   targetDevice: 1
   useOnDemandResources: 0
-  accelerometerFrequency: 15
+  accelerometerFrequency: 0
   companyName: DefaultCompany
   productName: Swim Tim - Education
   defaultCursor: {fileID: 0}
