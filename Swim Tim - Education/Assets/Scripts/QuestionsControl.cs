@@ -71,6 +71,7 @@ public class QuestionsControl : MonoBehaviour {
 
 				Debug.Log ("WRONG");
 				GameControl.instance.questionTime = false;
+				GameControl.deathReason = 2;
 				GameControl.instance.TimDied ();
 			}
 			

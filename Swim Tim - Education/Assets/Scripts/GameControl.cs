@@ -18,6 +18,7 @@ public class GameControl : MonoBehaviour {
 	public Text QuestionTimerText;
 	public Text nextQuestionTimerText;
 	public Text totalTimeText;
+	public Text deathReasonText;
 
 	public Text questionText;
 	public Text firstChoiceText;
@@ -38,6 +39,7 @@ public class GameControl : MonoBehaviour {
 
 	public static int score = 0;
 	public static float totalTime = 0f;
+	public static int deathReason = 1;
 
 	// Use this for initialization
 	void Awake () {
@@ -77,8 +79,8 @@ public class GameControl : MonoBehaviour {
 
 	public void TimDied() {
 
+		SelectDeathReason ();
 		Tim.deadStatus = true;
-		CharacterHealth.currentHealth = 0f;
 		QuestionTime.SetActive (false);
 		QuestionBackground.SetActive (true);
 		gameOverText.text = "Final Score: " + score.ToString ();
@@ -88,6 +90,7 @@ public class GameControl : MonoBehaviour {
 		Menu.SetActive (true);
 		gameOver = true;
 		Tim.ani.SetTrigger ("TimDead");
+
 	}
 
 	public void TimScored(){
@@ -173,7 +176,7 @@ public class GameControl : MonoBehaviour {
 
 	public void IncreaseGameSpeed(){
 
-		scrollSpeed = (scrollSpeed - (float)0.08); 			// Make the game go faster when a fish is collected.
+		scrollSpeed = (scrollSpeed - (float)0.08); 			
 		tunaSpeed = (tunaSpeed - (float)0.06);
 		enemySpeed = (enemySpeed - (float)0.08);
 
@@ -181,15 +184,29 @@ public class GameControl : MonoBehaviour {
 
 	public void DisplayTotalTime(){
 
-		float minutes = Mathf.Floor(totalTime / 60);
-		float seconds = Mathf.RoundToInt(totalTime%60);
-
 		if (totalTime > 0.95f && totalTime <= 1.49f) {
 			totalTimeText.text = "Time Survived: " + totalTime.ToString ("F2") + " Second";
 		}
 
-		if (totalTime > 1.49f && totalTime <= 59.49f) {
+		if (totalTime > 1.49f) {
 			totalTimeText.text = "Time Survived: " + totalTime.ToString ("F2") + " Seconds";
+		}
+	}
+
+	public void SelectDeathReason(){
+		switch(deathReason){
+			case 3:
+				deathReasonText.text = "You Lost All Your Health!";
+				break;
+			case 2:
+				deathReasonText.text = "You Got The Question Wrong!";
+				break;
+			case 1:
+				deathReasonText.text = "You Hit Something!";
+				break;
+			default:
+				deathReasonText.text = "You Died!";
+				break;
 		}
 	}
 }

@@ -5,8 +5,8 @@ using UnityEngine;
 public class RepeatingBackground : MonoBehaviour {
 
 	//private BoxCollider2D collider;
-	private float repeatPoint = 56f;	//13.7
-	private float repeatPosition = 53f; 
+	private float repeatPoint = 58f;	//13.7
+	private float repeatPosition = 51f; 
 
 	// Use this for initialization
 	void Start () {
@@ -24,7 +24,7 @@ public class RepeatingBackground : MonoBehaviour {
 		}
 
 		if (transform.position.x >= repeatPosition) {
-			repeatPosition = 56f;
+			repeatPosition = 51f;
 		}
 	}
 

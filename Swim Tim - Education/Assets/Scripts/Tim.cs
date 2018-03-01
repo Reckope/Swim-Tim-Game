@@ -55,6 +55,7 @@ public class Tim : MonoBehaviour {
 		//deadStatus = true;										// Tim is dead
 		ani.SetTrigger ("TimDead");								// Play Animation
 		//bgMusic.Stop();
+		GameControl.deathReason = 1;
 		GameControl.instance.TimDied ();						// Calls function from the controlGame script
 	}
 
