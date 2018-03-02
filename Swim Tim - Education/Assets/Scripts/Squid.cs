@@ -5,6 +5,7 @@ using UnityEngine;
 public class Squid : MonoBehaviour {
 
 	Vector2 current_position;
+
 	private float direction = 1.0f;
 	private float speed = 1.4f;
 	private float heightlimit = 1f;

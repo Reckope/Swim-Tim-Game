@@ -6,7 +6,7 @@ public class EnemySpeed : MonoBehaviour {
 
 	private Rigidbody2D rb2d;
 
-	public float speed;
+	public float speed = -15f;
 
 	// Use this for initialization
 	void Start () {
@@ -19,7 +19,7 @@ public class EnemySpeed : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		speed = GameControl.instance.enemySpeed;
+		//speed = GameControl.instance.enemySpeed;
 
 		if (GameControl.instance.gameOver == true || GameControl.instance.questionTime == true) {
 

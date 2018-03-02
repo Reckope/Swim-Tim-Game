@@ -8,7 +8,7 @@ public class CharacterHealth : MonoBehaviour {
 	public static float currentHealth { get; set; }
 	public float maxHealth { get; set; }
 
-	public static float increaseHealth = 2.5f;
+	public static float increaseHealth = 2.7f;
 
 	public Slider healthBar;
 
@@ -17,7 +17,7 @@ public class CharacterHealth : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		maxHealth = 21f;
+		maxHealth = 16f;
 		currentHealth = maxHealth;
 
 		healthBar.value = CalculateHealth ();

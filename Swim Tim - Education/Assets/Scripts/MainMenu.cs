@@ -7,6 +7,7 @@ public class MainMenu : MonoBehaviour {
 
 	public string startGameScene;
 	public string rulesScene;
+	public string backToMenuScene;
 
 	public void StartGame ()
 	{
@@ -20,7 +21,7 @@ public class MainMenu : MonoBehaviour {
 
 	public void backToMenu ()
 	{
-		Application.LoadLevel(this.startGameScene);
+		Application.LoadLevel(this.backToMenuScene);
 	}
 
 }

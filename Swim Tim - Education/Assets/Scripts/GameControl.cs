@@ -39,7 +39,7 @@ public class GameControl : MonoBehaviour {
 
 	public static int score = 0;
 	public static float totalTime = 0f;
-	public static int deathReason = 1;
+	public static int deathReason;
 
 	// Use this for initialization
 	void Awake () {
@@ -71,6 +71,7 @@ public class GameControl : MonoBehaviour {
 
 				QuestionTimerText.text = "0";
 				QuestionTime.SetActive (false);
+				deathReason = 4;
 				TimDied ();
 			}
 		}
@@ -101,12 +102,6 @@ public class GameControl : MonoBehaviour {
 			
 		score++;
 		scoreText.text = "Score: " + score.ToString ();
-
-		//if(score % 6 == 0){
-
-			//DisplayQuestion ();
-			
-		//}
 
 	}
 
@@ -195,6 +190,9 @@ public class GameControl : MonoBehaviour {
 
 	public void SelectDeathReason(){
 		switch(deathReason){
+			case 4:
+				deathReasonText.text = "You ran out of time!";
+				break;	
 			case 3:
 				deathReasonText.text = "You Lost All Your Health!";
 				break;

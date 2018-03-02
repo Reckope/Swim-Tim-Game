@@ -6,7 +6,7 @@ public class RepeatEnemy : MonoBehaviour {
 
 	public float spawnRate = -15f;
 
-	private float spawnXPosition = 35f;
+	private float spawnXPosition = 25f;
 	private float spawnYPosition;
 
 	private float minYPosition = -3f;		//-2.2f
