@@ -17,7 +17,7 @@ public class CharacterHealth : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		maxHealth = 16f;
+		maxHealth = 25f;
 		currentHealth = maxHealth;
 
 		healthBar.value = CalculateHealth ();

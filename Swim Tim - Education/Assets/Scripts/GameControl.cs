@@ -123,7 +123,7 @@ public class GameControl : MonoBehaviour {
 		nextQuestionTimerText.color = new Color (199.0f/255.0f, 0.0f/255.0f, 255.0f/255.0f);
 		QuestionTimerText.color = Color.white;
 		nextQuestionTimerText.fontSize = 17;
-		CharacterHealth.currentHealth = 20f;
+		CharacterHealth.currentHealth = 25f;
 		QuestionsControl.randomQuestion = -1;
 		StartCoroutine (DisplayCorrectText ());
 	}
@@ -207,4 +207,5 @@ public class GameControl : MonoBehaviour {
 				break;
 		}
 	}
+
 }
