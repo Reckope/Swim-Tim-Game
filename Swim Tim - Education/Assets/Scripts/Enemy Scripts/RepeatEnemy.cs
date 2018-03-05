@@ -30,6 +30,7 @@ public class RepeatEnemy : MonoBehaviour {
 
 	void SpawnEnemy(){
 
+		spawnYPosition = Random.Range (2f, -3f);
 		transform.position = new Vector2 (spawnXPosition, spawnYPosition);
 
 	}

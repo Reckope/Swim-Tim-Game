@@ -5,7 +5,7 @@ using UnityEngine;
 public class PufferFish : MonoBehaviour {
 
 	Vector2 initialSize = new Vector2 (0.16f, 0.16f);
-	Vector2 initialPosition = new Vector2 (17f, 0.50f);
+	Vector2 initialPosition = new Vector2 (11f, 0.50f);
 
 	private float initialWidth = 0.16f;
 	private float initialHeight = 0.16f;
@@ -13,6 +13,7 @@ public class PufferFish : MonoBehaviour {
 	private float increaseSize = 1f;
 	private float direction = -1f;
 	private float speed = 3f;
+	private float timPosition;
 
 	private float maxWidth = 0.62f; 
 	private float maxheight = 0.62f;
@@ -28,6 +29,8 @@ public class PufferFish : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+		timPosition = Tim.timCurrentPosition.y;
 		
 		if (GameControl.instance.gameOver == true || GameControl.instance.questionTime == true) {
 			
@@ -35,6 +38,10 @@ public class PufferFish : MonoBehaviour {
 
 		else if (GameControl.instance.gameOver == false || GameControl.instance.questionTime == false) { 
 			MovePufferFish ();
+
+			if (transform.position.x <= -10f) {
+				RespawnPufferFish ();
+			}
 		}
 
 	}
@@ -50,12 +57,20 @@ public class PufferFish : MonoBehaviour {
 			speed = 3.5f;
 		}
 
-		if (transform.position.x > 15f) {
+		/*if (transform.position.x > 15f) {
 			speed = 3f;
 			increaseSize = 1f;
 			transform.localScale = initialSize;
-		}
+		}*/
 
+	}
+
+	void RespawnPufferFish(){
+
+		transform.position = new Vector2 (11f, timPosition);
+		speed = 3f;
+		increaseSize = 1f;
+		transform.localScale = initialSize;
 	}
 
 }

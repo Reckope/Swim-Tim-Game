@@ -5,37 +5,33 @@ using UnityEngine;
 
 public class Tim : MonoBehaviour {
 
-	public static Tim instance;
+	public static Vector2 timCurrentPosition;
 
 	public static bool deadStatus = false;
-
 	private Rigidbody2D rb2d;
 	public static Animator ani;
-
-	//public AudioSource bgMusic;
-	public float swimUp = 300f;									// Upward force of swimming up. (300f)
-
-	private float movementTime = 2;
-	private float lerpTime = 0.05f;
+	public float swimUp = 300f;	
 
 	// Use this for initialization
 	void Start () 
 	{
 		
-		rb2d = GetComponent<Rigidbody2D> ();					// Check to see if rigibody2D is attached to the object.
+		rb2d = GetComponent<Rigidbody2D> ();
 		ani = GetComponent<Animator> ();
 	}
 
 	// Update is called once per frame
 	void Update () {
 
-		if (deadStatus == false) {								// If Tim is alive
+		timCurrentPosition = transform.position;
+
+		if (deadStatus == false) {
 			if (GameControl.instance.questionTime == false) {
 
 				rb2d.constraints = ~RigidbodyConstraints2D.FreezeAll;
-				if (Input.GetMouseButton (0)) { 						// If the player has left clicked / holding down left click.
+				if (Input.GetMouseButton (0)) {
 					rb2d.velocity = (new Vector2 (0, swimUp));		
-					//rb2d.AddRelativeForce(new Vector2(0, swimUp));	// Tim swim upwards.
+					//rb2d.AddRelativeForce(new Vector2(0, swimUp));
 
 				}
 			} 
@@ -47,13 +43,13 @@ public class Tim : MonoBehaviour {
 
 	}
 
-	void OnCollisionEnter2D ()									// When Tim hits the ground
+	void OnCollisionEnter2D ()
 	{
-		//deadStatus = true;										// Tim is dead
-		ani.SetTrigger ("TimDead");								// Play Animation
+		//deadStatus = true;
+		ani.SetTrigger ("TimDead");				
 		//bgMusic.Stop();
 		GameControl.deathReason = 1;
-		GameControl.instance.TimDied ();						// Calls function from the controlGame script
+		GameControl.instance.TimDied ();	
 	}
 
 	public void TimQuestion() {

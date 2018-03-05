@@ -33,7 +33,7 @@ public class Crab : MonoBehaviour {
 			else if (GameControl.instance.gameOver == false || GameControl.instance.questionTime == false) { 
 
 			MoveCrab ();
-			if (transform.position.x <= -15f) {
+			if (transform.position.x <= -10f) {
 				RespawnCrab ();
 			}
 		}
@@ -64,7 +64,7 @@ public class Crab : MonoBehaviour {
 
 	void RespawnCrab(){
 
-		transform.position = new Vector2 (25f, -3.8f);
+		transform.position = new Vector2 (11f, -3.8f);
 		upwardDirection = 1f;
 	}
 
