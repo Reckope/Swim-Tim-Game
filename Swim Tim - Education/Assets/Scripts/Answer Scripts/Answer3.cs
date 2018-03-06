@@ -7,7 +7,6 @@ public class Answer3 : MonoBehaviour, IPointerDownHandler {
 
 	List<string> thirdChoice = new List<string>() {
 		"22 + 77", 
-		"10000", 
 		"43", 
 		"616",
 		"33",

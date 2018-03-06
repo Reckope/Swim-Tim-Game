@@ -23,11 +23,11 @@ public class CharacterHealth : MonoBehaviour {
 		healthBar.value = CalculateHealth ();
 		
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 
-		if (GameControl.instance.questionTime == false && GameControl.instance.gameOver == false) {
+		if (GameControl.instance.questionTime == false && GameControl.instance.gameOver == false && GameControl.instance.categoryTime == false) {
 			currentHealth -= decreaseHealth * Time.deltaTime;
 			healthBar.value = CalculateHealth ();
 		}

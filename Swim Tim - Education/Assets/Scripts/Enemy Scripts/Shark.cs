@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class Shark : MonoBehaviour {
 
-	Vector2 initialPositionShark = new Vector2 (11f, 0f);
+	public static Vector2 initialPositionShark = new Vector2 (11f, 0f);
 
 	private float speed = 5f;
 	private float direction = -1f;
-	private float spawnYPosition;
 	private float timPosition;
 
 	private bool sharkStopped = false;
@@ -70,7 +69,6 @@ public class Shark : MonoBehaviour {
 
 	void RespawnShark(){
 
-		spawnYPosition = Random.Range (2.2f, -1.5f);
 		transform.position = new Vector2 (11f, timPosition);
 		speed = 5f;
 		sharkStopped = false;

@@ -26,7 +26,7 @@ public class Tim : MonoBehaviour {
 		timCurrentPosition = transform.position;
 
 		if (deadStatus == false) {
-			if (GameControl.instance.questionTime == false) {
+			if (GameControl.instance.questionTime == false || GameControl.instance.categoryTime == false) {
 
 				rb2d.constraints = ~RigidbodyConstraints2D.FreezeAll;
 				if (Input.GetMouseButton (0)) {
@@ -35,7 +35,7 @@ public class Tim : MonoBehaviour {
 
 				}
 			} 
-				if (GameControl.instance.questionTime == true) { 
+			if (GameControl.instance.questionTime == true || GameControl.instance.categoryTime == true) { 
 					rb2d.constraints = RigidbodyConstraints2D.FreezeAll;
 				}
 					

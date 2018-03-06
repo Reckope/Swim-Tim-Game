@@ -44,7 +44,7 @@ public class Jellyfish : MonoBehaviour {
 			transform.position = Vector3.MoveTowards(transform.position, target.transform.position, followSpeed * Time.deltaTime);
 		}
 		if(transform.position.x < (target.transform.position.x + 2f)){
-			transform.Translate (direction * speed * Time.deltaTime * 1, 0, 0);
+			transform.Translate (direction * speed * Time.deltaTime * 1.2f, 0, 0);
 		}
 	}
 

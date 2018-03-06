@@ -43,7 +43,7 @@ public class FoodPool : MonoBehaviour {
 
 		lastSpawnTime += Time.deltaTime;
 
-		if (GameControl.instance.gameOver == false && lastSpawnTime >= spawnRate && GameControl.instance.questionTime == false) 
+		if (GameControl.instance.gameOver == false && lastSpawnTime >= spawnRate && GameControl.instance.questionTime == false && GameControl.instance.categoryTime == false) 
 		{
 			lastSpawnTime = 0f;
 			spawnYPosition = Random.Range (minYPosition, maxYPosition);

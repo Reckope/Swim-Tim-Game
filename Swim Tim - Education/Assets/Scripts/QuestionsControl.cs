@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class QuestionsControl : MonoBehaviour {
 
-	List<string> questions = new List<string>() {
-		"Which two numbers add up to make 100?", 			// 0
-		"What is the sum of 200, 300, 150 and 250?", 		// 1
+	List<string> mathQuestions = new List<string>() {
+		"Which two numbers add up to make 100?", 			// 0 
 		"What is the missing number?    87 + ? = 130", 		// 2
 		"What is 316 + 500?",								// 3
 		"What is the missing number?    378 + ? = 400",		// 4
@@ -18,9 +17,8 @@ public class QuestionsControl : MonoBehaviour {
 	
 	};
 
-	List<string> correctAnswer = new List<string>() {
+	List<string> mathCorrectAnswer = new List<string>() {
 		"2", 	// 0
-		"1", 	// 1
 		"3", 	// 2
 		"4",	// 3
 		"2",	// 4
@@ -32,6 +30,19 @@ public class QuestionsControl : MonoBehaviour {
 	
 	};
 
+	List<string> geoQuestions = new List<string>() {
+		"What is the capitol of England?", 
+		"What it the capitol of France?", 
+		"What is the capitol of Germany?",
+	};
+
+	List<string> geoCorrectAnswer = new List<string>() {
+		"2", 	// 0
+		"3", 	// 2
+		"4",	// 3
+
+	};
+
 	public static string selectedAnswer;
 	public static bool choiceSelected = false;
 
@@ -39,43 +50,46 @@ public class QuestionsControl : MonoBehaviour {
 
 	void Start () {
 		
-		//GameControl.instance.questionText.text = questions [0];
 		
 	}
 		
 	void Update () {
 
+		ControlMathQuestion ();
+		
+	}
+
+	void ControlMathQuestion(){
+
 		if (randomQuestion == -1) {
-			randomQuestion = Random.Range (0, 9);
+			randomQuestion = Random.Range (0, 8);
 			//randomQuestion = 2;
 		}
 
 		if (randomQuestion > -1) {
-			GameControl.instance.questionText.text = questions [randomQuestion];
+			GameControl.instance.questionText.text = mathQuestions [randomQuestion];
 		}
 
 		if (choiceSelected == true) {
 
 			choiceSelected = false;
 
-			if (correctAnswer [randomQuestion] == selectedAnswer) {
+			if (mathCorrectAnswer [randomQuestion] == selectedAnswer) {
 
 				Debug.Log ("CORRECT");
-
-				//GameControl.instance.correctText.text = "CORRECT";
 				GameControl.instance.completeQuestion (); 
-				
+
 			}
 
-			else if (correctAnswer [randomQuestion] != selectedAnswer) {
+			else if (mathCorrectAnswer [randomQuestion] != selectedAnswer) {
 
 				Debug.Log ("WRONG");
 				GameControl.instance.questionTime = false;
 				GameControl.deathReason = 2;
 				GameControl.instance.TimDied ();
 			}
-			
+
 		}
-		
+
 	}
 }

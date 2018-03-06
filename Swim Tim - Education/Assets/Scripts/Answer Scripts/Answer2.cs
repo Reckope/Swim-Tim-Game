@@ -6,8 +6,7 @@ using UnityEngine.EventSystems;
 public class Answer2 : MonoBehaviour, IPointerDownHandler {
 
 	List<string> secondChoice = new List<string>() {
-		"53 + 47", 
-		"850", 
+		"53 + 47",  
 		"50", 
 		"800",
 		"22",

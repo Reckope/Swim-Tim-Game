@@ -11,6 +11,7 @@ public class GameControl : MonoBehaviour {
 	public GameObject GameOver;
 	public GameObject Menu;
 	public GameObject QuestionTime;
+	public GameObject CategoryTime;
 	public GameObject QuestionBackground;
 
 	public Text scoreText;
@@ -19,6 +20,10 @@ public class GameControl : MonoBehaviour {
 	public Text nextQuestionTimerText;
 	public Text totalTimeText;
 	public Text deathReasonText;
+
+	public Text categoryTitleText;
+	public Text category1Text;
+	public Text category2Text;
 
 	public Text questionText;
 	public Text firstChoiceText;
@@ -30,6 +35,10 @@ public class GameControl : MonoBehaviour {
 	public bool gameOver = false;
 	public bool questionTime = false;
 
+	public bool categoryTime;
+	public int selectedCategory = 0;
+	public bool choiceSelected = false; 
+
 	public float scrollSpeed = -6.5f;
 	public float tunaSpeed;
 	public float enemySpeed;
@@ -40,15 +49,17 @@ public class GameControl : MonoBehaviour {
 	public static int score = 0;
 	public static float totalTime = 0f;
 	public static int deathReason;
+	public static int questionsAnwered = 0;
 
 	// Use this for initialization
 	void Awake () {
 
 		nextQuestionTimer = 15f;
+		questionsAnwered = 0;
 		totalTime = 0f;
 		Tim.deadStatus = false;
 		Application.targetFrameRate = 600;
-
+		ChooseCategory ();
 		if (instance == null) {
 			instance = this;
 		} else if (instance != this) {
@@ -60,19 +71,22 @@ public class GameControl : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		StartNextQuestionTimer ();
-		StartTotalTime ();
+		if (categoryTime == false) {
+			StartNextQuestionTimer ();
+		
+			StartTotalTime ();
 
-		if(questionTime == true){
+			if (questionTime == true) {
 
-			StartQuestionTimer ();
+				StartQuestionTimer ();
 
-			if (QuestionTimer < 0.0f) {
+				if (QuestionTimer < 0.0f) {
 
-				QuestionTimerText.text = "0";
-				QuestionTime.SetActive (false);
-				deathReason = 4;
-				TimDied ();
+					QuestionTimerText.text = "0";
+					QuestionTime.SetActive (false);
+					deathReason = 4;
+					TimDied ();
+				}
 			}
 		}
 		
@@ -125,6 +139,7 @@ public class GameControl : MonoBehaviour {
 		nextQuestionTimerText.fontSize = 17;
 		CharacterHealth.currentHealth = 25f;
 		QuestionsControl.randomQuestion = -1;
+		questionsAnwered++;
 		StartCoroutine (DisplayCorrectText ());
 	}
 
@@ -171,9 +186,9 @@ public class GameControl : MonoBehaviour {
 
 	public void IncreaseGameSpeed(){
 
-		scrollSpeed = (scrollSpeed - (float)0.08); 			
-		tunaSpeed = (tunaSpeed - (float)0.06);
-		enemySpeed = (enemySpeed - (float)0.08);
+		scrollSpeed = (scrollSpeed - (float)0.06); 			
+		tunaSpeed = (tunaSpeed - (float)0.05);
+		enemySpeed = (enemySpeed - (float)0.06);
 
 	}
 
@@ -206,6 +221,22 @@ public class GameControl : MonoBehaviour {
 				deathReasonText.text = "You Died!";
 				break;
 		}
+	}
+
+	public void ChooseCategory(){
+
+		categoryTime = true;
+		CategoryTime.SetActive (true);
+		QuestionBackground.SetActive (true);
+
+	}
+
+	public void CompleteCategory(){
+
+		categoryTime = false;
+		CategoryTime.SetActive (false);
+		QuestionBackground.SetActive (false);
+
 	}
 
 }

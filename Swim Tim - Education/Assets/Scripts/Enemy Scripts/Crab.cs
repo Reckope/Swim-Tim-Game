@@ -9,10 +9,8 @@ public class Crab : MonoBehaviour {
 
 	private float speed = 6f;
 	private float direction = -1f;
-	private float upwardForce = 500f;
 
 	public static float upwardDirection = 1f;
-	private float heightLimit = 2f;
 
 
 	// Use this for initialization
@@ -48,7 +46,7 @@ public class Crab : MonoBehaviour {
 			transform.Translate (0, upwardDirection*speed*Time.deltaTime * 1, 0);
 			Debug.Log ("IN ZONE");
 
-			if (transform.position.y > -1) {
+			if (transform.position.y > -1.4) {
 				upwardDirection = -1;
 			}
 

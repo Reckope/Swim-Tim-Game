@@ -5,9 +5,8 @@ using UnityEngine.EventSystems;
 
 public class Answer1 : MonoBehaviour, IPointerDownHandler {
 
-	List<string> firstChoice = new List<string>() {
-		"38 + 52", 
-		"900", 
+	List<string> mathFirstChoice = new List<string>() {
+		"38 + 52",  
 		"35", 
 		"900",
 		"21",
@@ -28,7 +27,7 @@ public class Answer1 : MonoBehaviour, IPointerDownHandler {
 	void Update () {
 
 		if (QuestionsControl.randomQuestion > -1) {
-			GameControl.instance.firstChoiceText.text = firstChoice [QuestionsControl.randomQuestion];
+			GameControl.instance.firstChoiceText.text = mathFirstChoice [QuestionsControl.randomQuestion];
 		}
 		
 	}

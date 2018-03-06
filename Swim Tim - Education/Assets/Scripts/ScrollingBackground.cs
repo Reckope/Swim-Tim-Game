@@ -17,12 +17,12 @@ public class ScrollingBackground : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		if (GameControl.instance.gameOver == true || GameControl.instance.questionTime == true) {
+		if (GameControl.instance.gameOver == true || GameControl.instance.questionTime == true || GameControl.instance.categoryTime == true) {
 
 			rb2d.velocity = Vector2.zero;
 		}
 
-		else if (GameControl.instance.gameOver == false || GameControl.instance.questionTime == false) {
+		else if (GameControl.instance.gameOver == false || GameControl.instance.questionTime == false || GameControl.instance.categoryTime == false) {
 
 			rb2d = GetComponent<Rigidbody2D> ();
 			rb2d.velocity = new Vector2 (GameControl.instance.scrollSpeed, 0);
