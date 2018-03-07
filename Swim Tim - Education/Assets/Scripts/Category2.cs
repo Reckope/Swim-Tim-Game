@@ -21,6 +21,7 @@ public class Category2 : MonoBehaviour, IPointerDownHandler {
 
 		GameControl.instance.selectedCategory = 2;
 		GameControl.instance.CompleteCategory ();
+		Debug.Log ("Cat: " + GameControl.instance.selectedCategory);
 
 	}
 }

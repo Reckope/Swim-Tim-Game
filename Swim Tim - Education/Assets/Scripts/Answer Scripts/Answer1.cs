@@ -18,6 +18,22 @@ public class Answer1 : MonoBehaviour, IPointerDownHandler {
 	
 	};
 
+	List<string> geoFirstChoice = new List<string>() {
+		"Edinburgh",  
+		"Lyon", 
+		"Frankfurt",
+		"Edinburgh",
+		"Venice",
+		"Madrid",
+		"Sydney",
+		"Nanjing",
+		"Recife",
+		"Seattle",
+		"Nagoya",
+		"Montreal"
+
+	};
+
 	// Use this for initialization
 	void Start () {
 		
@@ -26,10 +42,20 @@ public class Answer1 : MonoBehaviour, IPointerDownHandler {
 	// Update is called once per frame
 	void Update () {
 
-		if (QuestionsControl.randomQuestion > -1) {
+		if(GameControl.instance.selectedCategory > 0){
+		ChooseCategory ();
+		}
+	}
+
+	void ChooseCategory(){
+
+		if (QuestionsControl.randomQuestion > -1 && GameControl.instance.selectedCategory == 1) {
 			GameControl.instance.firstChoiceText.text = mathFirstChoice [QuestionsControl.randomQuestion];
 		}
-		
+		if (QuestionsControl.randomQuestion > -1 && GameControl.instance.selectedCategory == 2){
+			GameControl.instance.firstChoiceText.text = geoFirstChoice [QuestionsControl.randomQuestion];
+		}
+
 	}
 
 	public void OnPointerDown (PointerEventData eventData) {

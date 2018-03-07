@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 public class Answer2 : MonoBehaviour, IPointerDownHandler {
 
-	List<string> secondChoice = new List<string>() {
+	List<string> mathSecondChoice = new List<string>() {
 		"53 + 47",  
 		"50", 
 		"800",
@@ -18,6 +18,22 @@ public class Answer2 : MonoBehaviour, IPointerDownHandler {
 
 	};
 
+	List<string> geoSecondChoice = new List<string>() {
+		"London",  
+		"Toulouse", 
+		"Munich",
+		"Glasgow",
+		"Rome",
+		"Barcelona",
+		"Melbourne",
+		"Shanghai",
+		"Brasilia",
+		"New York",
+		"Osaka",
+		"Toronto"
+
+	};
+
 	// Use this for initialization
 	void Start () {
 		
@@ -26,10 +42,21 @@ public class Answer2 : MonoBehaviour, IPointerDownHandler {
 	// Update is called once per frame
 	void Update () {
 
-		if (QuestionsControl.randomQuestion > -1) {
-			GameControl.instance.secondChoiceText.text = secondChoice [QuestionsControl.randomQuestion];
+		if(GameControl.instance.selectedCategory > 0){
+			ChooseCategory ();
 		}
 		
+	}
+
+	void ChooseCategory (){
+
+		if (QuestionsControl.randomQuestion > -1 && GameControl.instance.selectedCategory == 1) {
+			GameControl.instance.secondChoiceText.text = mathSecondChoice [QuestionsControl.randomQuestion];
+		}
+		if (QuestionsControl.randomQuestion > -1 && GameControl.instance.selectedCategory == 2){
+			GameControl.instance.secondChoiceText.text = geoSecondChoice [QuestionsControl.randomQuestion];
+		}
+
 	}
 
 	public void OnPointerDown (PointerEventData eventData) {

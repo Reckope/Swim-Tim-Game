@@ -2028,7 +2028,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &572037173
 Transform:
   m_ObjectHideFlags: 0
@@ -2706,7 +2706,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: You will often get greeted with a quesion like this.
+  m_Text: You will often get shown a quesion like this.
 --- !u!222 &714702591
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3819,8 +3819,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: You must answer the question correctly so you can carry on! Answering a
-    question correctly will give you full health!
+  m_Text: Answer the question correctly. Answering a question correctly will give
+    you full health!
 --- !u!222 &1061586575
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5833,7 +5833,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: You have a limited amount of time to answer the question correctly!
+  m_Text: Answer the question before time runs out!
 --- !u!222 &1867099534
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -10,7 +10,7 @@ public class Tim : MonoBehaviour {
 	public static bool deadStatus = false;
 	private Rigidbody2D rb2d;
 	public static Animator ani;
-	public float swimUp = 300f;	
+	public float swimUp = 5f;	
 
 	// Use this for initialization
 	void Start () 

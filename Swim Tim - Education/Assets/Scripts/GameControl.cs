@@ -57,9 +57,12 @@ public class GameControl : MonoBehaviour {
 		nextQuestionTimer = 15f;
 		questionsAnwered = 0;
 		totalTime = 0f;
+		score = 0;
+		selectedCategory = 0;
 		Tim.deadStatus = false;
 		Application.targetFrameRate = 600;
 		ChooseCategory ();
+
 		if (instance == null) {
 			instance = this;
 		} else if (instance != this) {
@@ -195,11 +198,11 @@ public class GameControl : MonoBehaviour {
 	public void DisplayTotalTime(){
 
 		if (totalTime > 0.95f && totalTime <= 1.49f) {
-			totalTimeText.text = "Time Survived: " + totalTime.ToString ("F2") + " Second";
+			totalTimeText.text = "Time Survived: " + totalTime.ToString ("N0") + " Second";
 		}
 
 		if (totalTime > 1.49f) {
-			totalTimeText.text = "Time Survived: " + totalTime.ToString ("F2") + " Seconds";
+			totalTimeText.text = "Time Survived: " + totalTime.ToString ("N0") + " Seconds";
 		}
 	}
 

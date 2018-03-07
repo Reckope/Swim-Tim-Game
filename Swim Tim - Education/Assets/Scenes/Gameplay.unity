@@ -462,7 +462,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -170}
+  m_AnchoredPosition: {x: 0, y: -150}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &131449160
@@ -1218,7 +1218,7 @@ MonoBehaviour:
   deathReasonText: {fileID: 1924642464}
   categoryTitleText: {fileID: 816860876}
   category1Text: {fileID: 810875450}
-  category2Text: {fileID: 0}
+  category2Text: {fileID: 2076106655}
   questionText: {fileID: 377348712}
   firstChoiceText: {fileID: 131449161}
   secondChoiceText: {fileID: 1586308823}
@@ -3241,7 +3241,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -355}
+  m_AnchoredPosition: {x: 0, y: -335}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &815723185
@@ -6131,7 +6131,6 @@ GameObject:
   - component: {fileID: 1526429288}
   - component: {fileID: 1526429289}
   - component: {fileID: 1526429290}
-  - component: {fileID: 1526429291}
   - component: {fileID: 1526429292}
   m_Layer: 0
   m_Name: Tim
@@ -6305,7 +6304,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52238dfff2c85459a8f15639af6badf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swimUp: 5
+  swimUp: 4.5
 --- !u!95 &1526429290
 Animator:
   serializedVersion: 3
@@ -6323,17 +6322,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &1526429291
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1526429284}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 222b1339ef219435e945833cfaaf63d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1526429292
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6573,7 +6561,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -235}
+  m_AnchoredPosition: {x: 0, y: -215}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1586308822
@@ -7926,8 +7914,8 @@ GameObject:
   - component: {fileID: 2076106656}
   - component: {fileID: 2076106655}
   - component: {fileID: 2076106654}
-  - component: {fileID: 2076106653}
   - component: {fileID: 2076106652}
+  - component: {fileID: 2076106653}
   m_Layer: 5
   m_Name: cat2Text
   m_TagString: Untagged
@@ -7986,7 +7974,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2076106650}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eeacef8f58dad47bfaa4aa0e502917de, type: 3}
+  m_Script: {fileID: 11500000, guid: 1d65964c7fffc425cab5de8e5a14866d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &2076106654
@@ -8035,7 +8023,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: Geography
 --- !u!222 &2076106656
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8555,7 +8543,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -295}
+  m_AnchoredPosition: {x: 0, y: -275}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2144052432

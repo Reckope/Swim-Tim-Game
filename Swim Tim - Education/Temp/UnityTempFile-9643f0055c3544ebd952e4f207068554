@@ -197,6 +197,8 @@
 'Assets/Scripts/Answer Scripts/Answer3.cs'
 'Assets/Scripts/Answer Scripts/Answer4.cs'
 'Assets/Scripts/AnswersControl.cs'
+'Assets/Scripts/Category1.cs'
+'Assets/Scripts/Category2.cs'
 'Assets/Scripts/CharacterHealth.cs'
 'Assets/Scripts/Enemy Scripts/Crab.cs'
 'Assets/Scripts/Enemy Scripts/EnemySpeed.cs'

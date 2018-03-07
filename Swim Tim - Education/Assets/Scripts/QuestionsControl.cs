@@ -31,15 +31,34 @@ public class QuestionsControl : MonoBehaviour {
 	};
 
 	List<string> geoQuestions = new List<string>() {
-		"What is the capitol of England?", 
-		"What it the capitol of France?", 
-		"What is the capitol of Germany?",
+		"What is the capital of England?", 
+		"What it the capital of France?", 
+		"What is the capital of Germany?",
+		"What is the capital of Scotland?",
+		"What is the capital of Italy?",
+		"What is the capital of Spain?",
+		"What is the capital of Australia?",
+		"What is the capital of China?",
+		"What is the capital of Brazil?",
+		"What is the capital of America?",
+		"What is the capital of Japan?",
+		"What is the capital of Canada?"
+
 	};
 
 	List<string> geoCorrectAnswer = new List<string>() {
-		"2", 	// 0
-		"3", 	// 2
-		"4",	// 3
+		"2", 	
+		"3", 	
+		"4",
+		"1",
+		"2",
+		"1",
+		"4",
+		"3",
+		"2",
+		"4",
+		"4",
+		"3"
 
 	};
 
@@ -50,20 +69,29 @@ public class QuestionsControl : MonoBehaviour {
 
 	void Start () {
 		
-		
+		randomQuestion = -1;
 	}
 		
 	void Update () {
-
-		ControlMathQuestion ();
 		
+		Debug.Log ("Catergory = " + GameControl.instance.selectedCategory);
+		if (GameControl.instance.selectedCategory == 0) {
+			ControlMathQuestion ();
+		}
+		else if (GameControl.instance.selectedCategory == 1) {
+			ControlMathQuestion ();
+		}
+		else if (GameControl.instance.selectedCategory == 2) {
+			ControlGeoQuestion ();
+		}
 	}
 
+	// MATHS
 	void ControlMathQuestion(){
 
 		if (randomQuestion == -1) {
 			randomQuestion = Random.Range (0, 8);
-			//randomQuestion = 2;
+			//randomQuestion = 1;
 		}
 
 		if (randomQuestion > -1) {
@@ -82,6 +110,41 @@ public class QuestionsControl : MonoBehaviour {
 			}
 
 			else if (mathCorrectAnswer [randomQuestion] != selectedAnswer) {
+
+				Debug.Log ("WRONG");
+				GameControl.instance.questionTime = false;
+				GameControl.deathReason = 2;
+				GameControl.instance.TimDied ();
+			}
+
+		}
+
+	}
+
+	// GEOGRAPHY
+	void ControlGeoQuestion(){
+
+		if (randomQuestion == -1) {
+			randomQuestion = Random.Range (0, 11);
+			//randomQuestion = 0;
+		}
+
+		if (randomQuestion > -1) {
+			GameControl.instance.questionText.text = geoQuestions [randomQuestion];
+		}
+
+		if (choiceSelected == true) {
+
+			choiceSelected = false;
+
+			if (geoCorrectAnswer [randomQuestion] == selectedAnswer) {
+
+				Debug.Log ("CORRECT");
+				GameControl.instance.completeQuestion (); 
+
+			}
+
+			else if (geoCorrectAnswer [randomQuestion] != selectedAnswer) {
 
 				Debug.Log ("WRONG");
 				GameControl.instance.questionTime = false;
