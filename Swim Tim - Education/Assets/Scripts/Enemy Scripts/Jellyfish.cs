@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Jellyfish : MonoBehaviour {
 
-	Vector2 initialPositionJellyfish = new Vector2 (11f, 0f);
+	Vector2 initialPositionJellyfish = new Vector2 (11f, EnemyControl.enemyPositionY);
 	public GameObject target;
 
 	private float speed = 2.5f;
 	private float followSpeed = 3.5f;
 	private float direction = -1f;
-	private float timPosition;
+	public static float timPosition;
 
 	// Use this for initialization
 	void Start () {
@@ -29,10 +29,20 @@ public class Jellyfish : MonoBehaviour {
 		}
 
 		else if (GameControl.instance.gameOver == false || GameControl.instance.questionTime == false) { 
-			MoveJellyFish ();
 
-			if (transform.position.x <= -15f) {
-				RespawnJellyfish ();
+			if (EnemyControl.spawnJellyfish == true) {
+				
+				if(transform.position.y < -5f){
+					RespawnJellyfish ();
+				}
+
+				MoveJellyFish ();
+			
+				if (transform.position.x <= -15f) {
+					RespawnJellyfish ();
+				}
+			} else if (EnemyControl.spawnJellyfish == false) {
+				MoveToPool ();
 			}
 		}
 
@@ -50,8 +60,13 @@ public class Jellyfish : MonoBehaviour {
 
 	void RespawnJellyfish(){
 
-		transform.position = new Vector2 (11f, timPosition);
+		transform.position = new Vector2 (14f, timPosition);
 		
+	}
+
+	void MoveToPool(){
+
+		transform.position = new Vector2 (11f, EnemyControl.enemyPositionY);
 	}
 
 

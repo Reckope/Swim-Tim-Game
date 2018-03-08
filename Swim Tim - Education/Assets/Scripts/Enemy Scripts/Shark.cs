@@ -30,10 +30,20 @@ public class Shark : MonoBehaviour {
 		}
 
 		else if (GameControl.instance.gameOver == false || GameControl.instance.questionTime == false) { 
-			MoveShark ();
 
-			if (transform.position.x <= -15f) {
-				RespawnShark ();
+			if (EnemyControl.spawnShark == true) {
+
+				if(transform.position.y < -5f){
+					RespawnShark ();
+				}
+
+				MoveShark ();
+
+				if (transform.position.x <= -15f) {
+					RespawnShark ();
+				}
+			} else if (EnemyControl.spawnShark == false) {
+				MoveToPool ();
 			}
 		}
 		
@@ -72,5 +82,10 @@ public class Shark : MonoBehaviour {
 		transform.position = new Vector2 (11f, timPosition);
 		speed = 5f;
 		sharkStopped = false;
+	}
+
+	void MoveToPool(){
+
+		transform.position = new Vector2 (11f, EnemyControl.enemyPositionY);
 	}
 }

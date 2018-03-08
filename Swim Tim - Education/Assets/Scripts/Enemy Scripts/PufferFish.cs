@@ -5,7 +5,7 @@ using UnityEngine;
 public class PufferFish : MonoBehaviour {
 
 	Vector2 initialSize = new Vector2 (0.16f, 0.16f);
-	Vector2 initialPosition = new Vector2 (11f, 0.50f);
+	Vector2 initialPosition = new Vector2 (11f, EnemyControl.enemyPositionY);
 
 	private float initialWidth = 0.16f;
 	private float initialHeight = 0.16f;
@@ -37,11 +37,22 @@ public class PufferFish : MonoBehaviour {
 			}
 
 		else if (GameControl.instance.gameOver == false || GameControl.instance.questionTime == false) { 
-			MovePufferFish ();
 
-			if (transform.position.x <= -10f) {
-				RespawnPufferFish ();
+			if (EnemyControl.spawnPufferfish == true) {
+
+				if(transform.position.y < -5f){
+					RespawnPufferFish ();
+				}
+
+				MovePufferFish ();
+
+				if (transform.position.x <= -15f) {
+					RespawnPufferFish ();
+				}
+			} else if (EnemyControl.spawnPufferfish == false) {
+				MoveToPool ();
 			}
+
 		}
 
 	}
@@ -57,12 +68,6 @@ public class PufferFish : MonoBehaviour {
 			speed = 3.5f;
 		}
 
-		/*if (transform.position.x > 15f) {
-			speed = 3f;
-			increaseSize = 1f;
-			transform.localScale = initialSize;
-		}*/
-
 	}
 
 	void RespawnPufferFish(){
@@ -71,6 +76,11 @@ public class PufferFish : MonoBehaviour {
 		speed = 3f;
 		increaseSize = 1f;
 		transform.localScale = initialSize;
+	}
+
+	void MoveToPool(){
+
+		transform.position = new Vector2 (11f, EnemyControl.enemyPositionY);
 	}
 
 }
