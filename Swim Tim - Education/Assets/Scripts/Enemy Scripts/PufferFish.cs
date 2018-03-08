@@ -83,4 +83,12 @@ public class PufferFish : MonoBehaviour {
 		transform.position = new Vector2 (11f, EnemyControl.enemyPositionY);
 	}
 
+	private void OnTriggerEnter2D (Collider2D other){
+		if (other.GetComponent<Tim> () != null) {
+			GameControl.deathReason = 8;
+			Tim.rb2d.velocity = (new Vector2 (-5f, 0));
+			GameControl.instance.TimDied ();
+		}
+	}
+
 }

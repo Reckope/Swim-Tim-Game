@@ -12,7 +12,7 @@ public class CharacterHealth : MonoBehaviour {
 
 	public Slider healthBar;
 
-	private const float decreaseHealth = 1.3f;
+	private const float decreaseHealth = 1.5f;
 
 	// Use this for initialization
 	void Start () {

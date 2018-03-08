@@ -240,20 +240,29 @@ public class GameControl : MonoBehaviour {
 
 	public void SelectDeathReason(){
 		switch(deathReason){
+			case 8:
+				deathReasonText.text = "You were scratched by the pufferfish!";
+			break;
+			case 7:
+				deathReasonText.text = "The crab catches its food!";
+			break;
+			case 6:
+				deathReasonText.text = "The shark found its prey!";
+			break;
 			case 5:
-				deathReasonText.text = "You got killed by the Kraken!";
+				deathReasonText.text = "You were slayed by the mighty kraken!";
 				break;
 			case 4:
 				deathReasonText.text = "You ran out of time!";
 				break;	
 			case 3:
-				deathReasonText.text = "You Lost All Your Health!";
+				deathReasonText.text = "You lost all of your health!";
 				break;
 			case 2:
-				deathReasonText.text = "You Got The Question Wrong!";
+				deathReasonText.text = "You got The question wrong!";
 				break;
 			case 1:
-				deathReasonText.text = "You Hit Something!";
+				deathReasonText.text = "You were stung by a jellyfish!";
 				break;
 			default:
 				deathReasonText.text = "You Died!";

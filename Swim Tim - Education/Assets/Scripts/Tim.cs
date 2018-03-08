@@ -8,7 +8,7 @@ public class Tim : MonoBehaviour {
 	public static Vector2 timCurrentPosition;
 
 	public static bool deadStatus = false;
-	private Rigidbody2D rb2d;
+	public static Rigidbody2D rb2d;
 	public static Animator ani;
 	public float swimUp = 5f;	
 
@@ -48,17 +48,7 @@ public class Tim : MonoBehaviour {
 		//deadStatus = true;
 		ani.SetTrigger ("TimDead");				
 		//bgMusic.Stop();
-		if(GameControl.instance.questionAnsweredCorrectly == 1 || GameControl.instance.questionAnsweredCorrectly == 2){
-			GameControl.deathReason = 1;
-		}
-		else if(GameControl.instance.questionAnsweredCorrectly == 3){
-			rb2d.constraints = RigidbodyConstraints2D.FreezeAll;
-			GameControl.deathReason = 5;
-		}
 		GameControl.instance.TimDied ();	
 	}
-
-	public void TimQuestion() {
-
-	}
+		
 }

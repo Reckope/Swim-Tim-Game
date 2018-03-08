@@ -47,7 +47,7 @@ public class Squid : MonoBehaviour {
 		direction = -1;
 		transform.Translate (direction * speed * Time.deltaTime * 1, 0, 0);
 
-		if (transform.position.x > 0f && transform.position.x < 6f && squidStopped == false) {
+		if (transform.position.x > -15f && transform.position.x < 6f && squidStopped == false) {
 
 			if(speed >= 0.00f){
 				speed -= Time.deltaTime * 4f;
@@ -81,9 +81,17 @@ public class Squid : MonoBehaviour {
 
 	void SquidAttack(){
 
-		speed = 8f;
+		speed = 7f;
 		direction = -1;
 		transform.Translate (direction * speed * Time.deltaTime * 1, 0, 0);
 
+	}
+
+	private void OnTriggerEnter2D (Collider2D other){
+		if (other.GetComponent<Tim> () != null) {
+			GameControl.deathReason = 5;
+			Tim.rb2d.velocity = (new Vector2 (-5f, 0));
+			GameControl.instance.TimDied ();
+		}
 	}
 }

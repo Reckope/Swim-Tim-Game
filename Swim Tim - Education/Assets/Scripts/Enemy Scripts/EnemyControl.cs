@@ -8,7 +8,6 @@ public class EnemyControl : MonoBehaviour {
 	public GameObject crab;
 	public GameObject jellyfish;
 	public GameObject pufferfish;
-	//public GameObject squid;
 
 	public static float enemyPositionY = -15f;
 	public static float crabPositionY = -3.8f;
@@ -25,8 +24,7 @@ public class EnemyControl : MonoBehaviour {
 		spawnCrab = false;
 		spawnJellyfish = false;
 		spawnPufferfish = false;
-		//squid.SetActive (false);
-		
+
 	}
 
 	// Update is called once per frame
