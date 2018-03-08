@@ -34,6 +34,7 @@ public class GameControl : MonoBehaviour {
 
 	public bool gameOver = false;
 	public bool questionTime = false;
+	public int questionAnsweredCorrectly = 1;
 
 	public bool categoryTime;
 	public int selectedCategory = 0;
@@ -60,6 +61,7 @@ public class GameControl : MonoBehaviour {
 		score = 0;
 		selectedCategory = 0;
 		Tim.deadStatus = false;
+		questionAnsweredCorrectly = 1;
 		Application.targetFrameRate = 600;
 		ChooseCategory ();
 
@@ -133,6 +135,7 @@ public class GameControl : MonoBehaviour {
 	public void completeQuestion() {
 		
 		questionTime = false;
+		questionAnsweredCorrectly = 2;
 		QuestionTime.SetActive (false);
 		QuestionBackground.SetActive (false);
 		QuestionTimer = 12.0f;
@@ -146,11 +149,40 @@ public class GameControl : MonoBehaviour {
 		StartCoroutine (DisplayCorrectText ());
 	}
 
+	public void DeathBySquid(){
+
+		questionTime = false;
+		QuestionTime.SetActive (false);
+		QuestionBackground.SetActive (false);
+		QuestionTimer = 12.0f;
+		nextQuestionTimer = Random.Range (15f, 25f);
+		nextQuestionTimerText.color = new Color (199.0f/255.0f, 0.0f/255.0f, 255.0f/255.0f);
+		QuestionTimerText.color = Color.white;
+		CharacterHealth.currentHealth = 25f;
+		QuestionsControl.randomQuestion = -1;
+		questionsAnwered++;
+		StartCoroutine (DisplayWrongText ());
+	}
+
 	public IEnumerator DisplayCorrectText () {
 
-			correctText.text = "CORRECT";
-			yield return new WaitForSeconds (1);
-			correctText.text = " ";
+		correctText.color = Color.green;	
+		correctText.text = "CORRECT";
+		yield return new WaitForSeconds (1);
+		correctText.text = " ";
+		yield return new WaitForSeconds (1);
+		questionAnsweredCorrectly = 1;
+	}
+
+	public IEnumerator DisplayWrongText () {
+
+		correctText.color = Color.red;
+		correctText.text = "WRONG";
+		yield return new WaitForSeconds (1);
+		correctText.text = " ";
+		yield return new WaitForSeconds (1);
+		questionAnsweredCorrectly = 1;
+		deathReason = 5;
 	}
 
 	public void StartQuestionTimer() {
@@ -208,6 +240,9 @@ public class GameControl : MonoBehaviour {
 
 	public void SelectDeathReason(){
 		switch(deathReason){
+			case 5:
+				deathReasonText.text = "You got killed by the Kraken!";
+				break;
 			case 4:
 				deathReasonText.text = "You ran out of time!";
 				break;	

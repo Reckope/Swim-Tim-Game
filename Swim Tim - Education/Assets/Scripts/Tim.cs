@@ -48,7 +48,13 @@ public class Tim : MonoBehaviour {
 		//deadStatus = true;
 		ani.SetTrigger ("TimDead");				
 		//bgMusic.Stop();
-		GameControl.deathReason = 1;
+		if(GameControl.instance.questionAnsweredCorrectly == 1 || GameControl.instance.questionAnsweredCorrectly == 2){
+			GameControl.deathReason = 1;
+		}
+		else if(GameControl.instance.questionAnsweredCorrectly == 3){
+			rb2d.constraints = RigidbodyConstraints2D.FreezeAll;
+			GameControl.deathReason = 5;
+		}
 		GameControl.instance.TimDied ();	
 	}
 

@@ -4,38 +4,86 @@ using UnityEngine;
 
 public class Squid : MonoBehaviour {
 
-	Vector2 current_position;
+	public static Vector2 initialPositionSquid = new Vector2 (13f, 0.55f);
 
-	private float direction = 1.0f;
-	private float speed = 1.4f;
-	private float heightlimit = 1f;
-	private float timecount = 0.0f;
-	private float timelimit = 0f;
+	public static bool spawnSquid = false;
+
+	private bool squidStopped = false;
+	private float speed = 5f;
+	private float direction = -1f;
+
 
 	// Use this for initialization
 	void Start () {
 
-		current_position = this.transform.position;							// Find out the Squids current position.
+		transform.position = initialPositionSquid;
 
 	}
 
 	// Update is called once per frame
 	void Update () {
 
-		transform.Translate (0, direction*speed*Time.deltaTime * 1, 0);
+		if (GameControl.instance.gameOver == true || GameControl.instance.questionTime == false) {
 
-		if (transform.position.y > current_position.y+heightlimit) {
-			direction = -1;
-		}
-		if (transform.position.y < current_position.y){
-			direction = 0;
-			timecount = timecount + Time.deltaTime;
+			if (GameControl.instance.questionAnsweredCorrectly == 2) {
+				MoveSquidBack ();
+			}
 
-			if (timecount > timelimit) {
-				direction = 1;
-				timecount = 0;
+			if(GameControl.instance.questionAnsweredCorrectly == 3){
+				SquidAttack ();
 			}
 		}
+
+		else if (GameControl.instance.gameOver == false || GameControl.instance.questionTime == true) { 
+
+			MoveSquid ();
+
+		}
+
+	}
+
+	void MoveSquid(){
+
+		direction = -1;
+		transform.Translate (direction * speed * Time.deltaTime * 1, 0, 0);
+
+		if (transform.position.x > 0f && transform.position.x < 6f && squidStopped == false) {
+
+			if(speed >= 0.00f){
+				speed -= Time.deltaTime * 4f;
+			}
+
+			if(speed < 1f){
+
+				speed = 0.00f;
+
+			}
+		}
+
+	}
+
+	void MoveSquidBack(){
+
+		speed = 5f;
+		direction = 1;
+		transform.Translate (direction * speed * Time.deltaTime * 1, 0, 0);
+
+			if(speed >= 0.00f){
+				speed -= Time.deltaTime * 4f;
+			}
+
+			if(speed < 1f){
+
+				speed = 0.00f;
+
+			}
+	}
+
+	void SquidAttack(){
+
+		speed = 8f;
+		direction = -1;
+		transform.Translate (direction * speed * Time.deltaTime * 1, 0, 0);
 
 	}
 }

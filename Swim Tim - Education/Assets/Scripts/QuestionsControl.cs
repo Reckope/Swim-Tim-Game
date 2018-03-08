@@ -74,7 +74,6 @@ public class QuestionsControl : MonoBehaviour {
 		
 	void Update () {
 		
-		Debug.Log ("Catergory = " + GameControl.instance.selectedCategory);
 		if (GameControl.instance.selectedCategory == 0) {
 			ControlMathQuestion ();
 		}
@@ -105,6 +104,7 @@ public class QuestionsControl : MonoBehaviour {
 			if (mathCorrectAnswer [randomQuestion] == selectedAnswer) {
 
 				Debug.Log ("CORRECT");
+				GameControl.instance.questionAnsweredCorrectly = 2;
 				GameControl.instance.completeQuestion (); 
 
 			}
@@ -114,7 +114,8 @@ public class QuestionsControl : MonoBehaviour {
 				Debug.Log ("WRONG");
 				GameControl.instance.questionTime = false;
 				GameControl.deathReason = 2;
-				GameControl.instance.TimDied ();
+				GameControl.instance.questionAnsweredCorrectly = 3;
+				GameControl.instance.DeathBySquid();
 			}
 
 		}
@@ -140,6 +141,7 @@ public class QuestionsControl : MonoBehaviour {
 			if (geoCorrectAnswer [randomQuestion] == selectedAnswer) {
 
 				Debug.Log ("CORRECT");
+				GameControl.instance.questionAnsweredCorrectly = 2;
 				GameControl.instance.completeQuestion (); 
 
 			}
@@ -149,7 +151,8 @@ public class QuestionsControl : MonoBehaviour {
 				Debug.Log ("WRONG");
 				GameControl.instance.questionTime = false;
 				GameControl.deathReason = 2;
-				GameControl.instance.TimDied ();
+				GameControl.instance.questionAnsweredCorrectly = 3;
+				GameControl.instance.DeathBySquid();
 			}
 
 		}
