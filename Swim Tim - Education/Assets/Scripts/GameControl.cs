@@ -45,7 +45,7 @@ public class GameControl : MonoBehaviour {
 	public float enemySpeed;
 
 	private float QuestionTimer = 12.0f;
-	private float nextQuestionTimer;
+	public static float nextQuestionTimer;
 
 	public static int score = 0;
 	public static float totalTime = 0f;
@@ -139,7 +139,11 @@ public class GameControl : MonoBehaviour {
 		QuestionTime.SetActive (false);
 		QuestionBackground.SetActive (false);
 		QuestionTimer = 12.0f;
-		nextQuestionTimer = Random.Range (15f, 25f);
+		if (QuestionsControl.questionNumber < QuestionsControl.numberOfQuestions) {
+			nextQuestionTimer = Random.Range (15f, 25f);
+		} else {
+			nextQuestionTimer = 1000000f;
+		}
 		nextQuestionTimerText.color = new Color (199.0f/255.0f, 0.0f/255.0f, 255.0f/255.0f);
 		QuestionTimerText.color = Color.white;
 		nextQuestionTimerText.fontSize = 17;
@@ -199,8 +203,11 @@ public class GameControl : MonoBehaviour {
 
 		if (questionTime == false && Tim.deadStatus == false) {
 			nextQuestionTimer -= Time.deltaTime;
-			nextQuestionTimerText.text = "Next Question: " + nextQuestionTimer.ToString ("N0");
-
+			if (nextQuestionTimer < 1000) {
+				nextQuestionTimerText.text = "Next Question: " + nextQuestionTimer.ToString ("N0");
+			} else {
+				nextQuestionTimerText.text = "NO MORE QUESTIONS!";
+			}
 			if(nextQuestionTimer < 3.50f && nextQuestionTimer >= 0){
 				nextQuestionTimerText.color = Color.red;
 				nextQuestionTimerText.fontSize = 26;

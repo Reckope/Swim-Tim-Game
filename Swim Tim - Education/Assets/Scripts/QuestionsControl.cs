@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class QuestionsControl : MonoBehaviour {
 
-	List<string> mathQuestions = new List<string>() {
+	public static List<string> mathQuestions = new List<string>() {
 		"Which two numbers add up to make 100?", 			// 0 
 		"What is the missing number?    87 + ? = 130", 		// 2
 		"What is 316 + 500?",								// 3
@@ -62,18 +62,36 @@ public class QuestionsControl : MonoBehaviour {
 
 	};
 
+	List<int> previousQuestion = new List<int>() {
+		-1, 	
+		-1, 	
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1,
+		-1
+
+	};
+
+	public static int questionNumber = 0;
+	public static int numberOfQuestions = 11;
 	public static string selectedAnswer;
 	public static bool choiceSelected = false;
-
 	public static int randomQuestion = -1;
 
 	void Start () {
 		
 		randomQuestion = -1;
+		questionNumber = 0;
 	}
 		
 	void Update () {
-		
+
 		if (GameControl.instance.selectedCategory == 0) {
 			ControlMathQuestion ();
 		}
@@ -83,27 +101,39 @@ public class QuestionsControl : MonoBehaviour {
 		else if (GameControl.instance.selectedCategory == 2) {
 			ControlGeoQuestion ();
 		}
+
 	}
 
 	// MATHS
 	void ControlMathQuestion(){
 
 		if (randomQuestion == -1) {
+
 			randomQuestion = Random.Range (0, 8);
-			//randomQuestion = 1;
+			for (int i = 0; i < mathQuestions.Count; i++) {
+				if (randomQuestion != previousQuestion [i]) {
+
+				}else {
+					randomQuestion = -1;
+				}
+			}
+
 		}
 
 		if (randomQuestion > -1) {
 			GameControl.instance.questionText.text = mathQuestions [randomQuestion];
+			previousQuestion [questionNumber] = randomQuestion;
+	
 		}
 
 		if (choiceSelected == true) {
 
 			choiceSelected = false;
-
+			questionNumber+=1;
+			Debug.Log ("Q Number: " + questionNumber);
 			if (mathCorrectAnswer [randomQuestion] == selectedAnswer) {
 
-				Debug.Log ("CORRECT");
+				//Debug.Log ("CORRECT");
 				GameControl.instance.questionAnsweredCorrectly = 2;
 				GameControl.instance.completeQuestion (); 
 
@@ -111,7 +141,7 @@ public class QuestionsControl : MonoBehaviour {
 
 			else if (mathCorrectAnswer [randomQuestion] != selectedAnswer) {
 
-				Debug.Log ("WRONG");
+				//Debug.Log ("WRONG");
 				GameControl.instance.questionTime = false;
 				GameControl.deathReason = 2;
 				GameControl.instance.questionAnsweredCorrectly = 3;
@@ -127,20 +157,34 @@ public class QuestionsControl : MonoBehaviour {
 
 		if (randomQuestion == -1) {
 			randomQuestion = Random.Range (0, 11);
-			//randomQuestion = 0;
+			for (int i = 0; i < 12; i++) {
+				if (randomQuestion != previousQuestion [i]) {
+					
+				} else {
+					randomQuestion = -1;
+				}
+			}
+				
+		}
+
+		if(questionNumber >= 11){
+			questionNumber = 0;
+			randomQuestion = -1;
 		}
 
 		if (randomQuestion > -1) {
 			GameControl.instance.questionText.text = geoQuestions [randomQuestion];
+			previousQuestion [questionNumber] = randomQuestion;
 		}
 
 		if (choiceSelected == true) {
 
 			choiceSelected = false;
+			questionNumber+=1;
 
 			if (geoCorrectAnswer [randomQuestion] == selectedAnswer) {
 
-				Debug.Log ("CORRECT");
+				//Debug.Log ("CORRECT");
 				GameControl.instance.questionAnsweredCorrectly = 2;
 				GameControl.instance.completeQuestion (); 
 
@@ -148,7 +192,7 @@ public class QuestionsControl : MonoBehaviour {
 
 			else if (geoCorrectAnswer [randomQuestion] != selectedAnswer) {
 
-				Debug.Log ("WRONG");
+				//Debug.Log ("WRONG");
 				GameControl.instance.questionTime = false;
 				GameControl.deathReason = 2;
 				GameControl.instance.questionAnsweredCorrectly = 3;
