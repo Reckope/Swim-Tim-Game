@@ -3,11 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+//[RequireComponent(typeof(AudioSource))]
 public class MainMenu : MonoBehaviour {	
 
 	public string startGameScene;
 	public string rulesScene;
 	public string backToMenuScene;
+
+	//public AudioSource MainMenumusic;
+
+	void Start () {
+
+		//MainMenumusic.Play ();
+
+	}
 
 	public void StartGame ()
 	{

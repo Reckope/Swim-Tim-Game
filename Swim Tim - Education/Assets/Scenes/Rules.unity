@@ -1963,13 +1963,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 563046016}
-  m_LocalRotation: {x: -0, y: -0, z: 0.040156044, w: 0.9991935}
-  m_LocalPosition: {x: -0.162, y: 3.091, z: -0.8049117}
-  m_LocalScale: {x: 0.48841992, y: 0.47917, z: 0.64787996}
+  m_LocalRotation: {x: -0, y: -0, z: 0.021940298, w: -0.9997593}
+  m_LocalPosition: {x: 0.037, y: 2.945, z: -0.8049117}
+  m_LocalScale: {x: 0.5954499, y: 0.58417296, z: 0.7898532}
   m_Children: []
   m_Father: {fileID: 168556864}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 4.603}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -2.5140002}
 --- !u!212 &563046018
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2028,7 +2028,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &572037173
 Transform:
   m_ObjectHideFlags: 0
@@ -2706,7 +2706,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: You will often get shown a quesion like this.
+  m_Text: 
 --- !u!222 &714702591
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3770,8 +3770,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 135.1, y: -145.9}
-  m_SizeDelta: {x: 195.4, y: 233.29999}
+  m_AnchoredPosition: {x: 242.7, y: 37.603462}
+  m_SizeDelta: {x: 195.4, y: 135.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1061586573
 MonoBehaviour:
@@ -3819,8 +3819,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Answer the question correctly. Answering a question correctly will give
-    you full health!
+  m_Text: Answering a question correctly will give you full health!
 --- !u!222 &1061586575
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4392,8 +4391,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 289, y: -162.33}
-  m_SizeDelta: {x: 162.8, y: 163.3}
+  m_AnchoredPosition: {x: 297, y: -164}
+  m_SizeDelta: {x: 162.8, y: 120.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1304026228
 MonoBehaviour:
@@ -5249,13 +5248,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1700327401}
-  m_LocalRotation: {x: -0, y: -0, z: 0.084989086, w: 0.99638194}
-  m_LocalPosition: {x: -4.344, y: -2.18, z: -0.8049117}
+  m_LocalRotation: {x: -0, y: -0, z: 0.13830666, w: -0.9903895}
+  m_LocalPosition: {x: -4.418, y: -1.504, z: -0.8049117}
   m_LocalScale: {x: 0.48841843, y: 0.47916532, z: 0.6478782}
   m_Children: []
   m_Father: {fileID: 168556864}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 9.751}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -15.900001}
 --- !u!212 &1700327403
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7002,7 +7001,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2086466204
 Transform:
   m_ObjectHideFlags: 0

@@ -66,8 +66,9 @@ public class Squid : MonoBehaviour {
 
 		speed = 5f;
 		direction = 1;
-		transform.Translate (direction * speed * Time.deltaTime * 1, 0, 0);
-
+		if (transform.position.x <= 13f) {
+			transform.Translate (direction * speed * Time.deltaTime * 1, 0, 0);
+		}
 			if(speed >= 0.00f){
 				speed -= Time.deltaTime * 4f;
 			}

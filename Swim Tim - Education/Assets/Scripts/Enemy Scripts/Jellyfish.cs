@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class Jellyfish : MonoBehaviour {
 
 	Vector2 initialPositionJellyfish = new Vector2 (11f, EnemyControl.enemyPositionY);
@@ -11,6 +12,8 @@ public class Jellyfish : MonoBehaviour {
 	private float followSpeed = 3.5f;
 	private float direction = -1f;
 	public static float timPosition;
+
+	public AudioSource ZapSound;
 
 	// Use this for initialization
 	void Start () {
@@ -25,7 +28,7 @@ public class Jellyfish : MonoBehaviour {
 		timPosition = Tim.timCurrentPosition.y;
 
 		if (GameControl.instance.gameOver == true || GameControl.instance.questionTime == true) {
-
+			
 		}
 
 		else if (GameControl.instance.gameOver == false || GameControl.instance.questionTime == false) { 
@@ -60,13 +63,15 @@ public class Jellyfish : MonoBehaviour {
 
 	void RespawnJellyfish(){
 
-		transform.position = new Vector2 (14f, timPosition);
+		transform.position = new Vector2 (10f, timPosition);
+		ZapSound.Play ();
 		
 	}
 
 	void MoveToPool(){
 
 		transform.position = new Vector2 (11f, EnemyControl.enemyPositionY);
+		ZapSound.Stop ();
 	}
 
 	private void OnTriggerEnter2D (Collider2D other){

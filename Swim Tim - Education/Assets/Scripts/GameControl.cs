@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(AudioSource))]
 public class GameControl : MonoBehaviour {
 
 	public static GameControl instance;
@@ -13,6 +14,8 @@ public class GameControl : MonoBehaviour {
 	public GameObject QuestionTime;
 	public GameObject CategoryTime;
 	public GameObject QuestionBackground;
+
+	public AudioSource BackgroundMusic;
 
 	public Text scoreText;
 	public Text gameOverText;
@@ -37,7 +40,7 @@ public class GameControl : MonoBehaviour {
 	public int questionAnsweredCorrectly = 1;
 
 	public bool categoryTime;
-	public int selectedCategory = 0;
+	public int selectedCategory;
 	public bool choiceSelected = false; 
 
 	public float scrollSpeed = -6.5f;
@@ -55,6 +58,7 @@ public class GameControl : MonoBehaviour {
 	// Use this for initialization
 	void Awake () {
 
+		BackgroundMusic.volume = 0.5f;
 		nextQuestionTimer = 15f;
 		questionsAnwered = 0;
 		totalTime = 0f;
@@ -62,7 +66,9 @@ public class GameControl : MonoBehaviour {
 		selectedCategory = 0;
 		Tim.deadStatus = false;
 		questionAnsweredCorrectly = 1;
+		deathReason = 0;
 		Application.targetFrameRate = 600;
+		//QualitySettings.vSyncCount = 1;
 		ChooseCategory ();
 
 		if (instance == null) {
@@ -78,11 +84,11 @@ public class GameControl : MonoBehaviour {
 
 		if (categoryTime == false) {
 			StartNextQuestionTimer ();
-		
 			StartTotalTime ();
 
 			if (questionTime == true) {
 
+				BackgroundMusic.volume = 0.2f;
 				StartQuestionTimer ();
 
 				if (QuestionTimer < 0.0f) {
@@ -99,6 +105,7 @@ public class GameControl : MonoBehaviour {
 
 	public void TimDied() {
 
+		BackgroundMusic.Stop ();
 		SelectDeathReason ();
 		Tim.deadStatus = true;
 		QuestionTime.SetActive (false);
@@ -151,6 +158,7 @@ public class GameControl : MonoBehaviour {
 		QuestionsControl.randomQuestion = -1;
 		questionsAnwered++;
 		StartCoroutine (DisplayCorrectText ());
+		BackgroundMusic.volume = 0.5f;
 	}
 
 	public void DeathBySquid(){
@@ -187,6 +195,20 @@ public class GameControl : MonoBehaviour {
 		yield return new WaitForSeconds (1);
 		questionAnsweredCorrectly = 1;
 		deathReason = 5;
+	}
+
+	public IEnumerator DisplayCategoryText(){
+
+		correctText.color = new Color (223.0f/255.0f, 62.0f/255.0f, 255.0f/255.0f);
+		if (selectedCategory == 1) {
+			correctText.text = "Maths!";
+		} else if (selectedCategory == 2) {
+			correctText.text = "Geography!";
+		}
+		yield return new WaitForSeconds (1.5f);
+		correctText.text = " ";
+		yield return new WaitForSeconds (1.5f);
+		questionAnsweredCorrectly = 1;
 	}
 
 	public void StartQuestionTimer() {
@@ -287,9 +309,11 @@ public class GameControl : MonoBehaviour {
 
 	public void CompleteCategory(){
 
+		BackgroundMusic.Play ();
 		categoryTime = false;
 		CategoryTime.SetActive (false);
 		QuestionBackground.SetActive (false);
+		StartCoroutine (DisplayCategoryText());
 
 	}
 
