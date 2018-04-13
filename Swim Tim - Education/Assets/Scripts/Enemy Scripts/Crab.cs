@@ -54,9 +54,9 @@ public class Crab : MonoBehaviour {
 
 		if (transform.position.x > -15f && transform.position.x < -1f) {
 			transform.Translate (0, upwardDirection*speed*Time.deltaTime * 1, 0);
-			Debug.Log ("IN ZONE");
 
 			if (transform.position.y > -1.4) {
+				SnapSound.Play ();
 				upwardDirection = -1;
 			}
 
@@ -73,7 +73,7 @@ public class Crab : MonoBehaviour {
 
 		transform.position = new Vector2 (11f, EnemyControl.crabPositionY);
 		upwardDirection = 1f;
-		SnapSound.Play ();
+
 	}
 
 	void MoveToPool(){

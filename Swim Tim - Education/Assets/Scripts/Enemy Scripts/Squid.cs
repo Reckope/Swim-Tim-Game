@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class Squid : MonoBehaviour {
 
 	public static Vector2 initialPositionSquid = new Vector2 (13f, 0.55f);
@@ -12,6 +13,7 @@ public class Squid : MonoBehaviour {
 	private float speed = 5f;
 	private float direction = -1f;
 
+	public AudioSource Growl;
 
 	// Use this for initialization
 	void Start () {
@@ -35,20 +37,20 @@ public class Squid : MonoBehaviour {
 		}
 
 		else if (GameControl.instance.gameOver == false || GameControl.instance.questionTime == true) { 
-
 			MoveSquid ();
-
 		}
 
 	}
 
 	void MoveSquid(){
-
+		if(transform.position.x > 12f){
+			Growl.Play ();
+		}
 		direction = -1;
 		transform.Translate (direction * speed * Time.deltaTime * 1, 0, 0);
-
+	
 		if (transform.position.x > -15f && transform.position.x < 6f && squidStopped == false) {
-
+	
 			if(speed >= 0.00f){
 				speed -= Time.deltaTime * 4f;
 			}
@@ -81,7 +83,7 @@ public class Squid : MonoBehaviour {
 	}
 
 	void SquidAttack(){
-
+		
 		speed = 7f;
 		direction = -1;
 		transform.Translate (direction * speed * Time.deltaTime * 1, 0, 0);

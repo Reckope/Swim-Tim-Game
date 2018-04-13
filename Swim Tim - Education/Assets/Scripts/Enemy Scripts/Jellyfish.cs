@@ -53,17 +53,18 @@ public class Jellyfish : MonoBehaviour {
 
 	void MoveJellyFish(){
 				
-		if(transform.position.x > (target.transform.position.x + 2f)){
+		if(transform.position.x > (target.transform.position.x + 3f)){
 			transform.position = Vector3.MoveTowards(transform.position, target.transform.position, followSpeed * Time.deltaTime);
 		}
-		if(transform.position.x < (target.transform.position.x + 2f)){
+		if(transform.position.x < (target.transform.position.x + 3f)){
 			transform.Translate (direction * speed * Time.deltaTime * 1.2f, 0, 0);
 		}
+
 	}
 
 	void RespawnJellyfish(){
 
-		transform.position = new Vector2 (10f, timPosition);
+		transform.position = new Vector2 (7.5f, timPosition);
 		ZapSound.Play ();
 		
 	}

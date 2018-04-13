@@ -147,9 +147,9 @@ public class GameControl : MonoBehaviour {
 		QuestionBackground.SetActive (false);
 		QuestionTimer = 12.0f;
 		if (QuestionsControl.questionNumber < QuestionsControl.numberOfQuestions) {
-			nextQuestionTimer = Random.Range (15f, 25f);
+			nextQuestionTimer = Random.Range (12f, 17f);
 		} else {
-			nextQuestionTimer = 1000000f;
+			nextQuestionTimer = 10000000f;
 		}
 		nextQuestionTimerText.color = new Color (199.0f/255.0f, 0.0f/255.0f, 255.0f/255.0f);
 		QuestionTimerText.color = Color.white;
