@@ -6,8 +6,8 @@ For this project the author decided to greatly extend on one of his original ide
 
 ‘Swim Tim: Education’ is a fun, 2D endless runner game designed for children. The player controls Tim, the main character, with the goal of attempting to swim as far as they can while gaining as many points as possible. Throughout their journey, players are encountered with enemies, each having unique characteristics which they must avoid. Players are also encountered with a boss, where they must answer a question based on the category selected to defeat it.
 
-The aim was to create the two-dimensional endless runner game using the following technologies: Unity, a cross-platform game engine developed by Unity Technologies [1] which is primarily used to develop two-dimensional and three-dimensional video games
-for consoles, computers and mobile devices. Xcode, an integrated development environment (IDE) for macOS containing a suite of software development tools developed by Apple [2, 3]. These two technologies combined allow anyone to develop a video game and export it to any apple product including macs, iPads and iPhones.
+The aim was to create the two-dimensional endless runner game using the following technologies: Unity, a cross-platform game engine developed by Unity Technologies which is primarily used to develop two-dimensional and three-dimensional video games
+for consoles, computers and mobile devices. Xcode, an integrated development environment (IDE) for macOS containing a suite of software development tools developed by Apple. These two technologies combined allow anyone to develop a video game and export it to any apple product including macs, iPads and iPhones.
 
 There were many smaller objectives which contributed towards the main objective. This involved learning about many different aspects of developing and exporting the game, such as developing using C#, mobile devices, Apples mobile operating system (iOS), game development using unity and using Xcode to export the game.
 
