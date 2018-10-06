@@ -11,4 +11,4 @@ for consoles, computers and mobile devices. Xcode, an integrated development env
 
 There were many smaller objectives which contributed towards the main objective. This involved learning about many different aspects of developing and exporting the game, such as developing using C#, mobile devices, Apples mobile operating system (iOS), game development using unity and using Xcode to export the game.
 
-The game was developed with the goal of combining high resolution graphics and intelligent enemy characteristics, while providing minimal user input in order to create a simple, quick and fun playable game for children. This document outlines the journey and process taken by the author in order to develop such a game.
+The game was developed with the goal of combining high resolution graphics and intelligent enemy characteristics, while providing minimal user input in order to create a simple, quick and fun playable game for children.
