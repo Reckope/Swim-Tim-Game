@@ -4,11 +4,16 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+/* This is the main script, used as a container
+* for the methods being called by the other scripts. 
+*/
+
 [RequireComponent(typeof(AudioSource))]
 public class GameControl : MonoBehaviour {
 
 	public static GameControl instance;
 
+	// Global Game Objects used for activating /deactivating in-game UI/States/booleans
 	public GameObject GameOver;
 	public GameObject Menu;
 	public GameObject QuestionTime;
@@ -17,6 +22,7 @@ public class GameControl : MonoBehaviour {
 
 	public AudioSource BackgroundMusic;
 
+	// Main gameplay UI text
 	public Text scoreText;
 	public Text gameOverText;
 	public Text QuestionTimerText;
@@ -24,10 +30,12 @@ public class GameControl : MonoBehaviour {
 	public Text totalTimeText;
 	public Text deathReasonText;
 
+	// Category UI text
 	public Text categoryTitleText;
 	public Text category1Text;
 	public Text category2Text;
 
+	// Question UI text
 	public Text questionText;
 	public Text firstChoiceText;
 	public Text secondChoiceText;
@@ -36,6 +44,7 @@ public class GameControl : MonoBehaviour {
 	public Text correctText;
 
 	public bool gameOver = false;
+
 	public bool questionTime = false;
 	public int questionAnsweredCorrectly = 1;
 

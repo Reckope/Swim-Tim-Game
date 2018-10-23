@@ -51,6 +51,7 @@ c63db43c730fa2cbb8ca07de15898cb6 UnityEngine.UI.dll:UnityEngine.UI.Toggle
 f61c0793411f10cf5fbfa1473fef5ef2 UnityEngine.UI.dll:UnityEngine.UI.ToggleGroup
 86d36c43c53541d667100dc90b89cfba UnityEngine.UI.dll:UnityEngine.EventSystems.TouchInputModule
 1b8c02d0aa82fbf036a2b9b2d713eec3 UnityEngine.UI.dll:UnityEngine.UI.VerticalLayoutGroup
+1fddbf2f2056196df3371bfc1a7840dc Assembly-CSharp.dll:.BubblePool
 a35dc9cca2faebc5f5f1aeb9e8e47bbe UnityEngine.UI.dll:UnityEngine.UI.AspectRatioFitter
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.UI.dll:UnityEngine.EventSystems.BaseInput
 49cd62a578efc0a599b810a2b66cd49c UnityEngine.UI.dll:UnityEngine.UI.Button
@@ -165,6 +166,7 @@ c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.Spa
 9de3a22eca9aefadba2d10d5987cefe3 UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
 0785c8c1ad5b85fbc87a5064ae8a8dfd Assembly-CSharp.dll:.Crab
 9c9183dcb0ffc90a17b575452617a399 Assembly-CSharp.dll:.Shark
+074b957a097ad17e72793a30b8d96583 Assembly-CSharp.dll:.BubbleScript
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Category1
 d32da8a705b40bf8f9edeaf08a96d657 Assembly-CSharp.dll:.SquidPool
 42aff81163d451ed5faf83532642ba98 Assembly-CSharp.dll:.SeaweedPool

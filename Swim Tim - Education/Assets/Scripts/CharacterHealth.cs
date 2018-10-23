@@ -52,8 +52,3 @@ public class CharacterHealth : MonoBehaviour {
 	}
 }
 
-/* REFERENCES
-
- How to create a health bar in unity. https://www.youtube.com/watch?v=GfuxWs6UAJQ&feature=youtu.be. Accessed 22/02/18.
-
-*/
