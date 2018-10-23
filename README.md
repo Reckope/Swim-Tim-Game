@@ -1,4 +1,4 @@
-<!-- This project was written entirely in C# -->
+This project was written entirely in C#
 
 Student motivation is a key predictor of successful educational outcomes. The more knowledge younger students gain, the more opportunities will open up to allow those individuals to achieve better possibilities in career and personal growth. With the technological resources available today, anyone can engineer solutions to assist and motivate education. The purpose of this project was to design and develop a two-dimensional iOS educational game to provide a more enjoyable experience for learning. This solution aims to divert most of the users’ attention to the actual gameplay, while using minimal effort to answer questions based on the category they selected. This document outlines and describes the process of developing this game. This process includes background research, design, project management, implementation, user testing, evaluation and development based on user feedback.
 
